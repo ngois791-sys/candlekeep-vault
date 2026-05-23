@@ -1,17 +1,15 @@
 // ============================================================
 // The Candlekeep Vault — Custom Theme
 // Dark Academia · Sage Green · Lora + Crimson Pro
+// Note: Fonts are loaded via quartz.config.ts fontOrigin setting
 // ============================================================
-
-// --- Google Fonts (Cinzel for nav labels and UI chrome) ---
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&display=swap');
 
 // ============================================================
 // SITE TITLE & TOP BAR
 // ============================================================
 
 .page-title {
-  font-family: 'Cinzel', serif !important;
+  font-family: 'Lora', Georgia, serif !important;
   font-size: 1.1rem !important;
   letter-spacing: 1px;
   color: var(--secondary) !important;
@@ -34,7 +32,7 @@
 .folder-title,
 .section-header,
 .explorer-header {
-  font-family: 'Cinzel', serif !important;
+  font-family: 'Lora', Georgia, serif !important;
   font-size: 0.65rem !important;
   letter-spacing: 1.5px !important;
   text-transform: uppercase !important;
@@ -46,7 +44,6 @@
   font-size: 0.95rem;
 }
 
-// Active nav item highlight
 .folder-outer > .folder-element.active,
 a.internal.alias:hover {
   color: var(--secondary) !important;
@@ -140,20 +137,18 @@ a[href^="/tags/"] {
 // CALLOUT BLOCKS
 // ============================================================
 
-// Base callout
 .callout {
   border-radius: 0 6px 6px 0;
   font-family: 'Crimson Pro', Georgia, serif;
 
   .callout-title {
-    font-family: 'Cinzel', serif;
+    font-family: 'Lora', Georgia, serif;
     font-size: 0.65rem;
     letter-spacing: 0.5px;
     text-transform: uppercase;
   }
 }
 
-// Note callout — Sage Green
 .callout[data-callout="note"] {
   border-left-color: var(--secondary);
   background: rgba(126, 171, 138, 0.08);
@@ -161,7 +156,6 @@ a[href^="/tags/"] {
   .callout-title { color: var(--secondary); }
 }
 
-// Important callout — Imperial Purple
 .callout[data-callout="important"] {
   border-left-color: #7A2076;
   background: rgba(122, 32, 118, 0.08);
@@ -169,7 +163,6 @@ a[href^="/tags/"] {
   .callout-title { color: #c084d4; }
 }
 
-// Warning callout — Amber
 .callout[data-callout="warning"] {
   border-left-color: #b8860b;
   background: rgba(184, 134, 11, 0.08);
@@ -177,7 +170,6 @@ a[href^="/tags/"] {
   .callout-title { color: #c9a84c; }
 }
 
-// Tip / Info
 .callout[data-callout="tip"],
 .callout[data-callout="info"] {
   border-left-color: var(--tertiary);
@@ -187,11 +179,11 @@ a[href^="/tags/"] {
 }
 
 // ============================================================
-// TABLE OF CONTENTS (right sidebar)
+// TABLE OF CONTENTS
 // ============================================================
 
 .toc-header {
-  font-family: 'Cinzel', serif !important;
+  font-family: 'Lora', Georgia, serif !important;
   font-size: 0.65rem !important;
   letter-spacing: 1.5px !important;
   text-transform: uppercase !important;
@@ -231,17 +223,15 @@ a[href^="/tags/"] {
 // ============================================================
 
 footer {
-  font-family: 'Cinzel', serif !important;
+  font-family: 'Lora', Georgia, serif !important;
   font-size: 0.7rem !important;
   letter-spacing: 0.5px;
   color: var(--gray) !important;
   border-top: 1px solid var(--lightgray);
 
-  // Hide the default Quartz "Created with Quartz" line
-  // and replace with our tagline via the pageTitle approach
   p {
     color: var(--gray);
-    font-family: 'Cinzel', serif;
+    font-family: 'Lora', Georgia, serif;
   }
 
   a {
@@ -272,7 +262,7 @@ table {
   width: 100%;
 
   th {
-    font-family: 'Cinzel', serif;
+    font-family: 'Lora', Georgia, serif;
     font-size: 0.7rem;
     letter-spacing: 0.5px;
     text-transform: uppercase;
@@ -288,17 +278,6 @@ table {
 
   tr:hover td {
     background: rgba(126, 171, 138, 0.05);
-  }
-}
-
-// ============================================================
-// GRAPH VIEW
-// ============================================================
-
-.graph {
-  .node-label {
-    font-family: 'Crimson Pro', serif;
-    font-size: 0.75rem;
   }
 }
 
