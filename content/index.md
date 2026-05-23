@@ -11,7 +11,7 @@ tags:
 ---
 
 > [!note] Archivist's Preface
-> What follows is a living account of the events surrounding a most unusual company of visitors to our keep. Their arrival on the 2nd day of Uktar, in the Year of the Scarlet Witch, was unremarkable. What came after was not.
+> What follows is a living account of the events surrounding a most unusual company of visitors to our keep. Their arrival on the 2nd day of Tarsakh, in the Year of the Scarlet Witch (1492 DR), was unremarkable. What came after was not.
 > 
 > These pages are updated as events unfold. The truth, as always, is still being written.
 

@@ -42,25 +42,25 @@ _In-World Date Tracker | 1492 DR — Faerûn_
 
 ## Forgotten Realms Calendar Reference
 
-|#|Month|Common Name|
-|---|---|---|
-|1|Hammer|Deepwinter|
-|—|_Midwinter_|_Special Day_|
-|2|Alturiak|The Claw of Winter|
-|3|Ches|The Claw of Sunsets|
-|4|Tarsakh|The Claw of Storms|
-|—|_Greengrass_|_Special Day_|
-|5|Mirtul|The Melting|
-|6|**Kythorn**|**The Time of Flowers** ← current|
-|7|Flamerule|Summertide|
-|—|_Midsummer_|_Special Day_|
-|8|Eleasis|Highsun|
-|9|Eleint|The Fading|
-|—|_Highharvesttide_|_Special Day_|
-|10|Marpenoth|Leaffall|
-|11|Uktar|The Rotting|
-|—|_Feast of the Moon_|_Special Day_|
-|12|Nightal|The Drawing Down|
+| #   | Month               | Common Name                       |
+| --- | ------------------- | --------------------------------- |
+| 1   | Hammer              | Deepwinter                        |
+| —   | _Midwinter_         | _Special Day_                     |
+| 2   | Alturiak            | The Claw of Winter                |
+| 3   | Ches                | The Claw of Sunsets               |
+| 4   | Tarsakh             | The Claw of Storms                |
+| —   | _Greengrass_        | _Special Day_                     |
+| 5   | Mirtul              | The Melting                       |
+| 6   | **Kythorn**         | **The Time of Flowers** ← current |
+| 7   | Flamerule           | Summertide                        |
+| —   | _Midsummer_         | _Special Day_                     |
+| 8   | Eleasis             | Highsun                           |
+| 9   | Eleint              | The Fading                        |
+| —   | _Highharvesttide_   | _Special Day_                     |
+| 10  | Marpenoth           | Leaffall                          |
+| 11  | Uktar               | The Rotting                       |
+| —   | _Feast of the Moon_ | _Special Day_                     |
+| 12  | Nightal             | The Drawing Down                  |
 
 ---
 
