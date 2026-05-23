@@ -459,6 +459,68 @@ async function buildAllSubfolderIndexes(sessions, css) {
   if (count > 0) console.log(`📂 Built ${count} subfolder index pages`)
 }
 
+
+// ── Calendar Banner ───────────────────────────────────────────
+function parseCalendar(content) {
+  const extract = (label) => {
+    const regex = new RegExp(`\\|\\*\\*${label}\\*\\*\\|([^|]+)\\|`)
+    const match = content.match(regex)
+    return match ? match[1].trim() : null
+  }
+  return {
+    currentDate:   extract('Full Date'),
+    nextFullMoon:  extract('Next Full Moon'),
+    daysRemaining: extract('Days Remaining'),
+    month:         extract('Month'),
+  }
+}
+
+function moonIcon(daysRemaining) {
+  const d = parseInt(daysRemaining) || 15
+  if (d <= 2)  return '🌕'
+  if (d <= 7)  return '🌔'
+  if (d <= 12) return '🌓'
+  if (d <= 18) return '🌒'
+  if (d <= 22) return '🌑'
+  if (d <= 27) return '🌘'
+  return '🌗'
+}
+
+function buildCalendarBanner(cal) {
+  if (!cal || !cal.currentDate) return ''
+  const icon = moonIcon(cal.daysRemaining)
+  const days = cal.daysRemaining
+    ? `${cal.daysRemaining} day${cal.daysRemaining === '1' ? '' : 's'} until next full moon`
+    : ''
+  return `
+  <div class="calendar-banner">
+    <div class="cal-date">
+      <span class="cal-label">Current Date</span>
+      <span class="cal-value">${cal.currentDate}</span>
+    </div>
+    <div class="cal-divider"></div>
+    <div class="cal-moon">
+      <span class="cal-moon-icon">${icon}</span>
+      <div class="cal-moon-info">
+        <span class="cal-label">Next Full Moon</span>
+        <span class="cal-value">${cal.nextFullMoon || '—'}</span>
+        ${days ? `<span class="cal-days">${days}</span>` : ''}
+      </div>
+    </div>
+  </div>`
+}
+
+async function readCalendar() {
+  const calPath = path.join(CONTENT, 'Campaign Notes', 'Campaign Calendar.md')
+  try {
+    const raw = await fs.readFile(calPath, 'utf-8')
+    const { content } = matter(raw)
+    return parseCalendar(content)
+  } catch (_) {
+    return null
+  }
+}
+
 // ── Main ──────────────────────────────────────────────────────
 async function main() {
   console.log('\n🏰 Building The Candlekeep Vault...\n')
@@ -492,12 +554,20 @@ async function main() {
   console.log(`📂 Rendered ${config.explore.length} section indexes`)
 
   // Home page
+  const calendar = await readCalendar()
+  const calBanner = buildCalendarBanner(calendar)
   const homeMd = path.join(CONTENT, 'index.md')
   if (await fs.pathExists(homeMd)) {
     const result = await renderFile(homeMd, sessions, css)
     if (result) {
-      await fs.writeFile(path.join(OUTPUT, 'index.html'), result.page)
+      // Inject calendar banner at the top of home page content
+      const homeHTML = result.page.replace(
+        '<div class="content">',
+        `${calBanner}<div class="content">`
+      )
+      await fs.writeFile(path.join(OUTPUT, 'index.html'), homeHTML)
       console.log('🏠 Home page built')
+      if (calendar) console.log(`📅 Calendar: ${calendar.currentDate}`)
     }
   }
 

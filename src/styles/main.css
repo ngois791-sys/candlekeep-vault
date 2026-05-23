@@ -713,3 +713,74 @@ a.wikilink:hover { color: var(--accent-h); }
   margin:       12px 0;
   display:      block;
 }
+
+/* ── Campaign Calendar Banner ─────────────────────────────── */
+.calendar-banner {
+  display:       flex;
+  align-items:   center;
+  gap:           24px;
+  background:    var(--sidebar-bg);
+  border:        1px solid var(--border);
+  border-left:   3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding:       14px 20px;
+  margin-bottom: 28px;
+  flex-wrap:     wrap;
+}
+
+.cal-date {
+  display:        flex;
+  flex-direction: column;
+  gap:            3px;
+}
+
+.cal-label {
+  font-family: 'Lora', Georgia, serif;
+  font-size:   0.6rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color:       var(--accent);
+}
+
+.cal-value {
+  font-family: 'Lora', Georgia, serif;
+  font-size:   1.05rem;
+  font-weight: 500;
+  color:       var(--heading);
+}
+
+.cal-divider {
+  width:      1px;
+  height:     40px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.cal-moon {
+  display:     flex;
+  align-items: center;
+  gap:         12px;
+}
+
+.cal-moon-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.cal-moon-info {
+  display:        flex;
+  flex-direction: column;
+  gap:            3px;
+}
+
+.cal-days {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size:   0.85rem;
+  color:       var(--muted);
+  font-style:  italic;
+}
+
+@media (max-width: 640px) {
+  .calendar-banner { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .cal-divider      { width: 100%; height: 1px; }
+}
