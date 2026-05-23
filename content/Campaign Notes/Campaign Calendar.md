@@ -2,10 +2,13 @@
 tags:
   - Campaign
   - Tracker
-  - "DM-Only"
+  - DM-Only
 aliases:
   - Calendar
   - Moon Tracker
+current_date: 20 Kythorn, 1492 DR
+next_full_moon: 30 Kythorn, 1492 DR
+days_remaining: "10"
 ---
 
 # Campaign Calendar

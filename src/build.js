@@ -461,17 +461,11 @@ async function buildAllSubfolderIndexes(sessions, css) {
 
 
 // ── Calendar Banner ───────────────────────────────────────────
-function parseCalendar(content) {
-  const extract = (label) => {
-    const regex = new RegExp(`\\|\\*\\*${label}\\*\\*\\|([^|]+)\\|`)
-    const match = content.match(regex)
-    return match ? match[1].trim() : null
-  }
+function parseCalendar(frontmatter) {
   return {
-    currentDate:   extract('Full Date'),
-    nextFullMoon:  extract('Next Full Moon'),
-    daysRemaining: extract('Days Remaining'),
-    month:         extract('Month'),
+    currentDate:   frontmatter.current_date   || null,
+    nextFullMoon:  frontmatter.next_full_moon  || null,
+    daysRemaining: frontmatter.days_remaining  || null,
   }
 }
 
@@ -514,9 +508,14 @@ async function readCalendar() {
   const calPath = path.join(CONTENT, 'Campaign Notes', 'Campaign Calendar.md')
   try {
     const raw = await fs.readFile(calPath, 'utf-8')
-    const { content } = matter(raw)
-    return parseCalendar(content)
-  } catch (_) {
+    const { data: fm } = matter(raw)
+    if (!fm.current_date) {
+      console.log('⚠️  Add current_date, next_full_moon, days_remaining to Campaign Calendar.md frontmatter')
+      return null
+    }
+    return parseCalendar(fm)
+  } catch (e) {
+    console.log('⚠️  Could not read Campaign Calendar.md:', e.message)
     return null
   }
 }
@@ -567,7 +566,11 @@ async function main() {
       )
       await fs.writeFile(path.join(OUTPUT, 'index.html'), homeHTML)
       console.log('🏠 Home page built')
-      if (calendar) console.log(`📅 Calendar: ${calendar.currentDate}`)
+      if (calendar && calendar.currentDate) {
+        console.log(`📅 Calendar: ${calendar.currentDate}`)
+      } else {
+        console.log('⚠️  Calendar found but could not parse date values')
+      }
     }
   }
 
