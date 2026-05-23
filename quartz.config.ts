@@ -1,68 +1,81 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
+import { RemoveDMOnly } from "./quartz/plugins/filters/removeDMOnly"
 
 /**
- * Quartz 4 Configuration
+ * The Candlekeep Vault — Quartz v4 Configuration
  *
- * See https://quartz.jzhao.xyz/configuration for more information.
+ * IMPORTANT: Replace YOUR-GITHUB-USERNAME with your actual GitHub username
+ * before pushing to GitHub.
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Quartz 4",
-    pageTitleSuffix: "",
+    pageTitle: "The Candlekeep Vault",
+    pageTitleSuffix: " | The Candlekeep Vault",
     enableSPA: true,
     enablePopovers: true,
-    analytics: {
-      provider: "plausible",
-    },
+    analytics: null,
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+
+    // Replace YOUR-GITHUB-USERNAME with your actual GitHub username
+    baseUrl: "ngois791-sys.github.io/candlekeep-vault",
+
+    // These folders inside your vault will be completely ignored by the wiki
+    ignorePatterns: [
+      "z_Templates",
+      ".obsidian",
+      "private",
+    ],
+
     defaultDateType: "modified",
+
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
+        header: "Lora",
+        body: "Crimson Pro",
         code: "IBM Plex Mono",
       },
       colors: {
+        // Light mode — parchment feel for anyone who prefers it
         lightMode: {
-          light: "#faf8f8",
-          lightgray: "#e5e5e5",
-          gray: "#b8b8b8",
-          darkgray: "#4e4e4e",
-          dark: "#2b2b2b",
-          secondary: "#284b63",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#fff23688",
+          light: "#F4EAD3",       // Warm parchment background
+          lightgray: "#e0d5c0",   // Subtle borders
+          gray: "#8a8070",        // Muted text / metadata
+          darkgray: "#2e2e3e",    // Body text
+          dark: "#1a1a2e",        // Headings
+          secondary: "#4a7a5a",   // Links / accent (darker sage for light bg)
+          tertiary: "#7EAB8A",    // Hover states
+          highlight: "rgba(126, 171, 138, 0.15)",
+          textHighlight: "rgba(126, 171, 138, 0.3)",
         },
+        // Dark mode — the Candlekeep Vault design
         darkMode: {
-          light: "#161618",
-          lightgray: "#393639",
-          gray: "#646464",
-          darkgray: "#d4d4d4",
-          dark: "#ebebec",
-          secondary: "#7b97aa",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#b3aa0288",
+          light: "#222848",       // Main background
+          lightgray: "#2e3460",   // Sidebar / borders
+          gray: "#7a7fa8",        // Muted text / metadata
+          darkgray: "#EAE1C9",    // Body text (antique cream)
+          dark: "#F4EAD3",        // Headings (warm parchment)
+          secondary: "#7EAB8A",   // Links / accent (sage green)
+          tertiary: "#9ECBAA",    // Hover states (lighter sage)
+          highlight: "rgba(126, 171, 138, 0.15)",
+          textHighlight: "rgba(126, 171, 138, 0.3)",
         },
       },
     },
   },
+
   plugins: {
     transformers: [
       Plugin.FrontMatter(),
       Plugin.CreatedModifiedDate({
-        priority: ["frontmatter", "git", "filesystem"],
+        priority: ["frontmatter", "filesystem"],
       }),
       Plugin.SyntaxHighlighting({
         theme: {
           light: "github-light",
-          dark: "github-dark",
+          dark: "one-dark-pro",
         },
         keepBackground: false,
       }),
@@ -73,7 +86,13 @@ const config: QuartzConfig = {
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
     ],
-    filters: [Plugin.RemoveDrafts()],
+
+    filters: [
+      // Removes any page with draft: true in frontmatter
+      Plugin.RemoveDrafts(),
+            RemoveDMOnly(),
+    ],
+
     emitters: [
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
@@ -82,14 +101,11 @@ const config: QuartzConfig = {
       Plugin.TagPage(),
       Plugin.ContentIndex({
         enableSiteMap: true,
-        enableRSS: true,
+        enableRSS: false,
       }),
       Plugin.Assets(),
       Plugin.Static(),
-      Plugin.Favicon(),
       Plugin.NotFoundPage(),
-      // Comment out CustomOgImages to speed up build time
-      Plugin.CustomOgImages(),
     ],
   },
 }
