@@ -1,0 +1,42 @@
+---
+obsidianUIMode: preview
+cssclasses:
+- json5e-note
+- json5e-index
+---
+# Index of Plant
+
+- [Aartuk Elder](./aartuk-elder-bam.md)
+- [Aartuk Starhorror](./aartuk-starhorror-bam.md)
+- [Aartuk Weedling](./aartuk-weedling-bam.md)
+- [Alliumite](./alliumite-ccodex.md)
+- [Ancient Mandriano](./ancient-mandriano-ccodex.md)
+- [Arborcyte](./arborcyte-ccodex.md)
+- [Astral Blight](./astral-blight-lox.md)
+- [Awakened Shrub](./awakened-shrub-xmm.md)
+- [Awakened Tree](./awakened-tree-xmm.md)
+- [Gas Spore Fungus](./gas-spore-fungus-xmm.md)
+- [Gloomflower](./gloomflower-ccodex.md)
+- [Great Mandrake](./great-mandrake-ccodex.md)
+- [Gulthias Blight](./gulthias-blight-xmm.md)
+- [Jinmenju](./jinmenju-ccodex.md)
+- [Mandrake](./mandrake-ccodex.md)
+- [Mandriano](./mandriano-ccodex.md)
+- [Myconid Adult](./myconid-adult-xmm.md)
+- [Myconid Sovereign](./myconid-sovereign-xmm.md)
+- [Myconid Spore Servant](./myconid-spore-servant-xmm.md)
+- [Myconid Sprout](./myconid-sprout-xmm.md)
+- [Needle Blight](./needle-blight-xmm.md)
+- [Razorleaf](./razorleaf-ccodex.md)
+- [Shadow Blight](./shadow-blight-ccodex.md)
+- [Shambling Mound](./shambling-mound-xmm.md)
+- [Shrieker Fungus](./shrieker-fungus-xmm.md)
+- [Treant](./treant-xmm.md)
+- [Tree Blight](./tree-blight-xmm.md)
+- [Twig Blight](./twig-blight-xmm.md)
+- [Vine Blight](./vine-blight-xmm.md)
+- [Vines of Nemthyr](./vines-of-nemthyr-ccodex.md)
+- [Violet Fungus Necrohulk](./violet-fungus-necrohulk-xmm.md)
+- [Violet Fungus](./violet-fungus-xmm.md)
+- [Warlock's Trumpetbloom](./warlocks-trumpetbloom-ccodex.md)
+- [Wirbeln Fungi](./wirbeln-fungi-ccodex.md)

@@ -1,3 +1,330 @@
-@use "./base.scss";
+// ============================================================
+// The Candlekeep Vault — Custom Theme
+// Dark Academia · Sage Green · Lora + Crimson Pro
+// ============================================================
 
-// put your custom CSS here!
+// --- Google Fonts (Cinzel for nav labels and UI chrome) ---
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&display=swap');
+
+// ============================================================
+// SITE TITLE & TOP BAR
+// ============================================================
+
+.page-title {
+  font-family: 'Cinzel', serif !important;
+  font-size: 1.1rem !important;
+  letter-spacing: 1px;
+  color: var(--secondary) !important;
+
+  a {
+    color: var(--secondary) !important;
+    &:hover { color: var(--tertiary) !important; }
+  }
+}
+
+// ============================================================
+// NAVIGATION & SIDEBAR
+// ============================================================
+
+.sidebar {
+  background-color: var(--lightgray);
+  border-right: 1px solid var(--lightgray);
+}
+
+.folder-title,
+.section-header,
+.explorer-header {
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.65rem !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  color: var(--secondary) !important;
+}
+
+.folder-outer > .folder-element {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 0.95rem;
+}
+
+// Active nav item highlight
+.folder-outer > .folder-element.active,
+a.internal.alias:hover {
+  color: var(--secondary) !important;
+  border-left: 2px solid var(--secondary);
+  padding-left: 6px;
+}
+
+// ============================================================
+// PAGE HEADINGS
+// ============================================================
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lora', Georgia, serif !important;
+  font-weight: 500;
+}
+
+h1 {
+  border-bottom: 1px solid var(--secondary);
+  padding-bottom: 0.4rem;
+  color: var(--dark);
+}
+
+h2 {
+  color: var(--secondary);
+  border-bottom: 1px solid var(--lightgray);
+  padding-bottom: 0.25rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.3px;
+}
+
+h3 {
+  color: var(--darkgray);
+  font-size: 1rem;
+}
+
+// ============================================================
+// BODY TEXT
+// ============================================================
+
+article p,
+article li,
+article td,
+article th {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+// ============================================================
+// LINKS
+// ============================================================
+
+a.internal {
+  color: var(--secondary) !important;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(126, 171, 138, 0.5);
+  transition: color 0.15s, border-color 0.15s;
+
+  &:hover {
+    color: var(--tertiary) !important;
+    border-bottom-color: var(--tertiary);
+  }
+}
+
+a.external {
+  color: var(--secondary) !important;
+  opacity: 0.85;
+}
+
+// ============================================================
+// TAGS
+// ============================================================
+
+.tag-link,
+a[href^="/tags/"] {
+  font-family: 'Crimson Pro', serif;
+  font-size: 0.78rem;
+  background: transparent !important;
+  border: 1px solid var(--secondary) !important;
+  color: var(--secondary) !important;
+  border-radius: 20px;
+  padding: 1px 9px;
+  text-decoration: none;
+
+  &:hover {
+    background: rgba(126, 171, 138, 0.15) !important;
+  }
+}
+
+// ============================================================
+// CALLOUT BLOCKS
+// ============================================================
+
+// Base callout
+.callout {
+  border-radius: 0 6px 6px 0;
+  font-family: 'Crimson Pro', Georgia, serif;
+
+  .callout-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+}
+
+// Note callout — Sage Green
+.callout[data-callout="note"] {
+  border-left-color: var(--secondary);
+  background: rgba(126, 171, 138, 0.08);
+
+  .callout-title { color: var(--secondary); }
+}
+
+// Important callout — Imperial Purple
+.callout[data-callout="important"] {
+  border-left-color: #7A2076;
+  background: rgba(122, 32, 118, 0.08);
+
+  .callout-title { color: #c084d4; }
+}
+
+// Warning callout — Amber
+.callout[data-callout="warning"] {
+  border-left-color: #b8860b;
+  background: rgba(184, 134, 11, 0.08);
+
+  .callout-title { color: #c9a84c; }
+}
+
+// Tip / Info
+.callout[data-callout="tip"],
+.callout[data-callout="info"] {
+  border-left-color: var(--tertiary);
+  background: rgba(158, 203, 170, 0.08);
+
+  .callout-title { color: var(--tertiary); }
+}
+
+// ============================================================
+// TABLE OF CONTENTS (right sidebar)
+// ============================================================
+
+.toc-header {
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.65rem !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  color: var(--secondary) !important;
+}
+
+.toc-content a {
+  font-family: 'Crimson Pro', serif;
+  font-size: 0.88rem;
+  color: var(--gray) !important;
+
+  &:hover, &.active {
+    color: var(--secondary) !important;
+  }
+}
+
+// ============================================================
+// SEARCH BAR
+// ============================================================
+
+#search-bar {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 0.95rem;
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  background: var(--light);
+  color: var(--darkgray);
+
+  &:focus {
+    border-color: var(--secondary);
+    outline: none;
+  }
+}
+
+// ============================================================
+// FOOTER
+// ============================================================
+
+footer {
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.7rem !important;
+  letter-spacing: 0.5px;
+  color: var(--gray) !important;
+  border-top: 1px solid var(--lightgray);
+
+  // Hide the default Quartz "Created with Quartz" line
+  // and replace with our tagline via the pageTitle approach
+  p {
+    color: var(--gray);
+    font-family: 'Cinzel', serif;
+  }
+
+  a {
+    color: var(--secondary) !important;
+  }
+}
+
+// ============================================================
+// BREADCRUMBS
+// ============================================================
+
+.breadcrumb-container {
+  font-family: 'Crimson Pro', serif;
+  font-size: 0.8rem;
+  color: var(--gray);
+
+  a { color: var(--secondary) !important; }
+}
+
+// ============================================================
+// TABLES
+// ============================================================
+
+table {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 0.98rem;
+  border-collapse: collapse;
+  width: 100%;
+
+  th {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--secondary);
+    border-bottom: 1px solid var(--secondary);
+    padding: 6px 12px;
+  }
+
+  td {
+    padding: 6px 12px;
+    border-bottom: 1px solid var(--lightgray);
+  }
+
+  tr:hover td {
+    background: rgba(126, 171, 138, 0.05);
+  }
+}
+
+// ============================================================
+// GRAPH VIEW
+// ============================================================
+
+.graph {
+  .node-label {
+    font-family: 'Crimson Pro', serif;
+    font-size: 0.75rem;
+  }
+}
+
+// ============================================================
+// CODE BLOCKS
+// ============================================================
+
+code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.88rem;
+  background: var(--lightgray);
+  border-radius: 3px;
+  padding: 1px 5px;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+}
+
+// ============================================================
+// HORIZONTAL RULE
+// ============================================================
+
+hr {
+  border: none;
+  border-top: 1px solid var(--lightgray);
+  margin: 1.5rem 0;
+}

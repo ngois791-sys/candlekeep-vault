@@ -1,0 +1,106 @@
+---
+obsidianUIMode: preview
+cssclasses:
+- json5e-monster
+tags:
+- ttrpg-cli/compendium/src/5e/cm
+- ttrpg-cli/monster/cr/3
+- ttrpg-cli/monster/size/medium
+- ttrpg-cli/monster/type/fey
+statblock: inline
+statblock-link: "#^statblock"
+aliases:
+- Hag of the Fetid Gaze
+---
+# [Hag of the Fetid Gaze](Mechanics\CLI\bestiary\fey/hag-of-the-fetid-gaze-cm.md)
+*Source: Candlekeep Mysteries p. 76*  
+
+Three green hags named Dread Morgan, Vile Sazha, and Auntie Greenbones were once rivals who dwelled in an area of the Feywild coterminous with the High Forest. A decade ago, during a time when the boundaries between the planes thinned, the hags became aware of the magic spring controlled by Sylvarie—and decided to control and corrupt it for their own purposes. The covetous hags each knew part of a ritual for crafting magic paintings that could bind mortal creatures with a terrible curse. After agreeing to share their knowledge and work together, they formed a coven dedicated to claiming Sylvarie's temple and making it a base for their nefarious plans.
+
+The hags use their powers of illusion to pose as three elf sisters named Morganna, Azirssa, and Greensong. They are typically found in the bathhouse by day and in their tower lair at night. Each hag carries a master key that opens all the doors in the bathhouse and the tower.
+
+```statblock
+"name": "Hag of the Fetid Gaze (CM)"
+"size": "Medium"
+"type": "fey"
+"alignment": "Neutral Evil"
+"ac": !!int "17"
+"ac_class": "natural armor"
+"hp": !!int "82"
+"hit_dice": "11d8 + 33"
+"modifier": !!int "1"
+"stats":
+  - !!int "18"
+  - !!int "12"
+  - !!int "16"
+  - !!int "13"
+  - !!int "14"
+  - !!int "14"
+"speed": "30 ft."
+"skillsaves":
+  - "name": "[Arcana](Mechanics/CLI/rules/skills.md#Arcana)"
+    "desc": "+3"
+  - "name": "[Deception](Mechanics/CLI/rules/skills.md#Deception)"
+    "desc": "+4"
+  - "name": "[Perception](Mechanics/CLI/rules/skills.md#Perception)"
+    "desc": "+4"
+  - "name": "[Stealth](Mechanics/CLI/rules/skills.md#Stealth)"
+    "desc": "+3"
+"senses": "[darkvision](Mechanics/CLI/rules/senses.md#Darkvision) 60 ft., passive\
+  \ Perception 14"
+"languages": "Common, Draconic, Sylvan"
+"cr": "3"
+"traits":
+  - "desc": "While all three members of a hag coven are within 30 feet of one another,\
+      \ they can each cast the following spells from the wizard's spell list but must\
+      \ share the spell slots among themselves:\n\n**1st level (4 slots):** [charm\
+      \ person](Mechanics/CLI/spells/charm-person-xphb.md), [witch bolt](Mechanics/CLI/spells/witch-bolt-xphb.md)\n\
+      \n**2nd level (3 slots):** [alter self](Mechanics/CLI/spells/alter-self-xphb.md),\
+      \ [suggestion](Mechanics/CLI/spells/suggestion-xphb.md)\n\n**3rd level (3 slots):**\
+      \ [dispel magic](Mechanics/CLI/spells/dispel-magic-xphb.md), [glyph of warding](Mechanics/CLI/spells/glyph-of-warding-xphb.md),\
+      \ [slow](Mechanics/CLI/spells/slow-xphb.md)\n\n**4th level (3 slots):** [blight](Mechanics/CLI/spells/blight-xphb.md),\
+      \ [polymorph](Mechanics/CLI/spells/polymorph-xphb.md)\n\n**5th level (2 slots):**\
+      \ [dominate person](Mechanics/CLI/spells/dominate-person-xphb.md), [seeming](Mechanics/CLI/spells/seeming-xphb.md)\n\
+      \n**6th level (1 slots):** [Otto's irresistible dance](Mechanics/CLI/spells/ottos-irresistible-dance-xphb.md)\n\
+      \nFor casting these spells, each hag is a 12th-level spellcaster that uses Intelligence\
+      \ as her spellcasting ability. The spell save DC is 12 + the hag's Intelligence\
+      \ modifier, and the spell attack bonus is 4 + the hag's Intelligence modifier."
+    "name": "Shared Spellcasting (Coven Only)"
+  - "desc": "The hag's innate spellcasting ability is Charisma (spell save DC 12).\
+      \ She can innately cast the following spells, requiring no material components:\n\
+      \n**At will:** [dancing lights](Mechanics/CLI/spells/dancing-lights-xphb.md),\
+      \ [minor illusion](Mechanics/CLI/spells/minor-illusion-xphb.md), [vicious mockery](Mechanics/CLI/spells/vicious-mockery-xphb.md)"
+    "name": "Innate Spellcasting"
+  - "desc": "The hag can breathe air and water."
+    "name": "Amphibious"
+  - "desc": "The hag can mimic animal sounds and humanoid voices. A creature that\
+      \ hears the sounds can tell they are imitations with a successful DC 14 Wisdom\
+      \ ([Insight](Mechanics/CLI/rules/skills.md#Insight)) check."
+    "name": "Mimicry"
+"actions":
+  - "desc": "*Melee Weapon Attack:* +6 to hit, reach 5 ft., one target. *Hit:* 13\
+      \ (2d8 + 4) slashing damage."
+    "name": "Claws"
+  - "desc": "The hag covers herself and anything she is wearing or carrying with a\
+      \ magical illusion that makes her look like another creature of her general\
+      \ size and humanoid shape. The illusion ends if the hag takes a bonus action\
+      \ to end it or if she dies.\n\nThe changes wrought by this effect fail to hold\
+      \ up to physical inspection. For example, the hag could appear to have smooth\
+      \ skin, but someone touching her would feel her rough flesh. Otherwise, a creature\
+      \ must take an action to visually inspect the illusion and succeed on a DC 20\
+      \ Intelligence ([Investigation](Mechanics/CLI/rules/skills.md#Investigation))\
+      \ check to discern that the hag is disguised."
+    "name": "Illusory Appearance"
+  - "desc": "The hag magically turns [invisible](Mechanics/CLI/rules/conditions.md#Invisible)\
+      \ until she attacks or casts a spell, or until her [concentration](Mechanics/CLI/rules/conditions.md#Concentration)\
+      \ ends (as if [concentrating](Mechanics/CLI/rules/conditions.md#Concentration)\
+      \ on a spell). While [invisible](Mechanics/CLI/rules/conditions.md#Invisible),\
+      \ she leaves no physical evidence of her passage, so she can be tracked only\
+      \ by magic. Any equipment she wears or carries is [invisible](Mechanics/CLI/rules/conditions.md#Invisible)\
+      \ with her."
+    "name": "Invisible Passage"
+"source":
+  - "CM"
+"image": "Mechanics/CLI/bestiary/fey/token/hag-of-the-fetid-gaze-cm.webp"
+```
+^statblock

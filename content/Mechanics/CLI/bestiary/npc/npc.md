@@ -1,0 +1,43 @@
+---
+obsidianUIMode: preview
+cssclasses:
+- json5e-note
+- json5e-index
+---
+# Index of Npc
+
+- [Agony](./agony-lox.md)
+- [Arrant Quill](./arrant-quill-cm.md)
+- [Bak Mei](./bak-mei-cm.md)
+- [Big Momma](./big-momma-lox.md)
+- [Commodore Krux](./commodore-krux-lox.md)
+- [Elaina Sartell](./elaina-sartell-lox.md)
+- [Faerl](./faerl-cm.md)
+- [Fel Ardra](./fel-ardra-lox.md)
+- [Flapjack](./flapjack-lox.md)
+- [Grimzod Gargenhale](./grimzod-gargenhale-lox.md)
+- [Gundren Rockseeker](./gundren-rockseeker-lmop.md)
+- [Hastain](./hastain-lox.md)
+- [Jade Tigress](./jade-tigress-cm.md)
+- [Kharbek](./kharbek-cm.md)
+- [K'Tulah](./ktulah-cm.md)
+- [Mantik, Barbed King of the Manticores](./mantik-barbed-king-of-the-manticores-ccodex.md)
+- [Miirym](./miirym-cm.md)
+- [Mormesk the Wraith](./mormesk-the-wraith-lmop.md)
+- [Nezznar the Black Spider](./nezznar-the-black-spider-lmop.md)
+- [Nintra Siotta](./nintra-siotta-cm.md)
+- [Nundro Rockseeker](./nundro-rockseeker-lmop.md)
+- [Prince Xeleth](./prince-xeleth-lox.md)
+- [Princess Xedalli](./princess-xedalli-lox.md)
+- [Ram Sugar](./ram-sugar-cm.md)
+- [Shemshime](./shemshime-cm.md)
+- [Sildar Hallwinter](./sildar-hallwinter-lmop.md)
+- [Steel Crane](./steel-crane-cm.md)
+- [Topolah](./topolah-lox.md)
+- [Valin Sarnaster](./valin-sarnaster-cm.md)
+- [Varnyr](./varnyr-cm.md)
+- [Venomfang](./venomfang-lmop.md)
+- [Vocath](./vocath-lox.md)
+- [Warwyck Blastimoff](./warwyck-blastimoff-lox.md)
+- [Zikran](./zikran-cm.md)
+- [Zikzokrishka](./zikzokrishka-cm.md)

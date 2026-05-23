@@ -1,0 +1,1 @@
+![[Bestiary/CLI/ttrpg-convert-cli-3.1.5-windows-x86_64/bin/dm/Beastiary/CLI/adventures/candlekeep-mysteries/03-the-joy-of-extradimensional-spaces|The Joy of Extradimensional Spaces]]

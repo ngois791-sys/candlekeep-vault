@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toothsome's Note</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #6b5a45;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px;
+    font-family: 'Caveat', cursive;
+  }
+
+  .note {
+    position: relative;
+    width: 480px;
+    background: #d4b896;
+    padding: 52px 56px 60px 56px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.5), inset 0 0 80px rgba(100,60,20,0.25);
+    transform: rotate(-0.8deg);
+    border-radius: 2px;
+  }
+
+  .note::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 12% 8%, rgba(90,50,10,0.18) 0%, transparent 45%),
+      radial-gradient(ellipse at 88% 90%, rgba(80,40,5,0.20) 0%, transparent 40%),
+      radial-gradient(ellipse at 60% 30%, rgba(160,100,30,0.08) 0%, transparent 50%);
+    pointer-events: none;
+    border-radius: 2px;
+  }
+
+  .note::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    border-radius: 2px;
+    opacity: 0.5;
+  }
+
+  .fold-crease {
+    position: absolute;
+    top: 50%;
+    left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent 5%, rgba(80,45,10,0.15) 20%, rgba(80,45,10,0.20) 50%, rgba(80,45,10,0.15) 80%, transparent 95%);
+    transform: translateY(-50%);
+  }
+
+  .fold-crease-v {
+    position: absolute;
+    left: 50%;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent 5%, rgba(80,45,10,0.12) 20%, rgba(80,45,10,0.18) 50%, rgba(80,45,10,0.12) 80%, transparent 95%);
+    transform: translateX(-50%);
+  }
+
+  .stain {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(90,55,15,0.18) 0%, transparent 70%);
+  }
+  .stain-1 { width: 90px; height: 60px; top: 18px; right: 40px; transform: rotate(20deg); }
+  .stain-2 { width: 50px; height: 40px; bottom: 30px; left: 50px; transform: rotate(-10deg); opacity: 0.7; }
+  .stain-3 { width: 30px; height: 25px; top: 45%; left: 30px; opacity: 0.5; }
+
+  .content {
+    position: relative;
+    z-index: 2;
+  }
+
+  p {
+    font-size: 26px;
+    color: #2a1a08;
+    line-height: 1.65;
+    margin-bottom: 22px;
+    letter-spacing: 0.3px;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  .warning {
+    font-size: 27px;
+    font-weight: 700;
+    color: #1e0f02;
+    margin-top: 6px;
+  }
+
+  @media print {
+    body {
+      background: white;
+      padding: 0;
+      display: block;
+    }
+    .note {
+      width: 100%;
+      max-width: 480px;
+      margin: 40px auto;
+      transform: none;
+      box-shadow: none;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="note">
+    <div class="fold-crease"></div>
+    <div class="fold-crease-v"></div>
+    <div class="stain stain-1"></div>
+    <div class="stain stain-2"></div>
+    <div class="stain stain-3"></div>
+    <div class="content">
+      <p>A figurine, carved black, the size of a fist. It rests beneath the rubble in the upper loft of Chalet Brantifax — a highland estate two days north of Wytchway. You will know it by smell before you see it.</p>
+      <p>Take it. Tell no one. Leave it wrapped in cloth at the base of the broken fountain in Rivington, south Baldurs Gate, before the next new moon.</p>
+      <p>A second bag — three times this one — will be waiting beneath the stone.</p>
+      <p class="warning">Ask no questions. We are watching to see that you don't.</p>
+    </div>
+  </div>
+</body>
+</html>
