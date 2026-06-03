@@ -36,19 +36,23 @@ On the other side, he found **four humans, speaking quietly among themselves.**
 
 ### Lucifurry
 
-- 
+- Took 3 giant wasp stingers and 3 sets of wings.
+- Skilled feat
 
 ### Morvax Blackthorn
 
-- 
+- War caster feat
 
 ### Vyr'ashen Stormwarth
 
-- 
+- Cloak of Minor Deflection
+- Dragon Fear feat
 
 ### Toothsome
 
-- 
+- Found the note. Took pieces of the cloak.
+- Lost his nuts to Ash's mouth.
+- Choose telepathic feat
 
 ---
 
@@ -68,7 +72,7 @@ On the other side, he found **four humans, speaking quietly among themselves.**
 
 ## Monsters Encountered
 
-- 
+- Giant Wasps and Mage.
 
 ## Loot Found
 

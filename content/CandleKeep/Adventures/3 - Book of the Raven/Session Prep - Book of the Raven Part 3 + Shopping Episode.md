@@ -41,7 +41,7 @@ tags:
 *Short. Relevant. Don't decide how they're found — just what they are.*
 
 1. Orcus Figurine hidden
-2. A torn scrap of parchment caught under a floorboard: _"...spectral guardian cannot be moved by..."_ — rest missing (DC 20 Investigation). The wereravens found this outside and don't know why it was just outside the Chalet.
+2. A torn scrap of parchment left with the pile of ash: _"...spectral guardian...Figurine to..."_ — rest missing (DC 20 Investigation). 
 3. 
 4. 
 5. 
@@ -61,7 +61,7 @@ tags:
 | Location          | Detail / Features                       | Music / Atmosphere                          |
 | ----------------- | --------------------------------------- | ------------------------------------------- |
 | C14 - Barons Loft | Here the party will meet the Wereravens | https://www.youtube.com/watch?v=SknFWXMzmhs |
-|                   |                                         |                                             |
+| Battle            | Battle with 3 bees and one mage         |                                             |
 |                   |                                         |                                             |
 
 ---
