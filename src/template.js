@@ -56,21 +56,15 @@ function buildTagsHTML(tags) {
   `</div>`
 }
 
-// Build breadcrumb HTML
+// Build breadcrumb HTML — a single clean trail
 function buildBreadcrumbHTML(breadcrumb) {
   if (!breadcrumb || breadcrumb.length === 0) return ''
-  // Show a back button pointing to the immediate parent
-  const parent = breadcrumb[breadcrumb.length - 1]
-  const backBtn = parent
-    ? `<a href="${parent.url}" class="back-btn">← ${parent.label}</a>`
-    : ''
-  // Full trail
-  const trail = breadcrumb.map((b, i) =>
-    i < breadcrumb.length - 1
-      ? `<a href="${b.url}">${b.label}</a> <span class="sep">›</span> `
-      : `<span>${b.label}</span>`
-  ).join('')
-  return `<div class="breadcrumb-wrap">${backBtn}<div class="breadcrumb">${trail}</div></div>`
+  const base = config.site.baseUrl
+  const sep  = `<span class="sep">›</span>`
+  const trail = breadcrumb
+    .map(b => `<a href="${b.url}">${b.label}</a>`)
+    .join(sep)
+  return `<nav class="breadcrumb"><a href="${base}/">Home</a>${sep}${trail}</nav>`
 }
 
 // Shared search + nav JS (inlined into every page)

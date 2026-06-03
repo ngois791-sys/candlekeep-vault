@@ -88,6 +88,103 @@ function extractTOC(html) {
 
 // ── Obsidian Markdown Pre-Processing ─────────────────────────
 
+// Strip DM-only sections: any heading whose text contains the
+// configured marker word hides that heading and everything under it,
+// up to the next heading at the same or higher level. Headings inside
+// fenced code blocks are ignored.
+function stripDMSections(md) {
+  const marker = config.dmOnlySectionMarker
+  if (!marker) return md
+
+  const markerLc = marker.toLowerCase()
+  const lines    = md.split('\n')
+  const out      = []
+  let inFence    = false   // inside a ``` or ~~~ code block
+  let hideLevel  = 0       // 0 = not hiding; otherwise the marked heading's level
+
+  for (const line of lines) {
+    // Track fenced code blocks so we never treat their contents as headings
+    if (/^\s*(```|~~~)/.test(line)) {
+      inFence = !inFence
+      if (hideLevel === 0) out.push(line)
+      continue
+    }
+
+    const headingMatch = !inFence && line.match(/^(#{1,6})\s+(.*)$/)
+
+    if (headingMatch) {
+      const level = headingMatch[1].length
+      const text  = headingMatch[2]
+
+      // If we're hiding and hit a heading at the same or higher level,
+      // stop hiding — public content resumes here (unless this heading
+      // is itself marked, handled below).
+      if (hideLevel > 0 && level <= hideLevel) {
+        hideLevel = 0
+      }
+
+      // Does this heading start a DM-only section?
+      if (text.toLowerCase().includes(markerLc)) {
+        hideLevel = level
+        continue   // drop the marked heading itself
+      }
+    }
+
+    if (hideLevel === 0) out.push(line)
+  }
+
+  return out.join('\n')
+}
+
+// Remove a note's leading H1 when it merely repeats the page title,
+// so pages don't show their title twice.
+function stripDuplicateTitle(md, title) {
+  if (!title) return md
+  const norm = s => s.replace(/[*_`]/g, '').replace(/\s+/g, ' ').trim().toLowerCase()
+  const lines = md.split('\n')
+  let i = 0
+  while (i < lines.length && lines[i].trim() === '') i++   // skip leading blanks
+  const m = i < lines.length ? lines[i].match(/^#\s+(.+?)\s*#*\s*$/) : null
+  if (m && norm(m[1]) === norm(title)) {
+    lines.splice(0, i + 1)
+    while (lines.length && lines[0].trim() === '') lines.shift()
+    return lines.join('\n')
+  }
+  return md
+}
+
+// Wrap tables so wide ones scroll horizontally instead of overflowing on mobile
+function wrapTables(html) {
+  return html
+    .replace(/<table>/g, '<div class="table-wrap"><table>')
+    .replace(/<\/table>/g, '</table></div>')
+}
+
+// Build a short plain-text excerpt from note body for index cards
+function shortExcerpt(body, title = '', max = 90) {
+  let text = stripDMSections(body)
+    .replace(/^---[\s\S]*?---/, '')          // stray frontmatter
+    .replace(/^#\s+.+$/m, '')                // leading heading line
+    .replace(/!\[\[[^\]]*\]\]/g, '')         // image/file embeds
+    .replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, t, d) => (d || t)) // wikilinks
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, '')    // markdown images
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1') // markdown links → text
+    .replace(/\[!\w[\w-]*\][-+]?/g, '')      // callout markers [!note]
+    .replace(/^\s*[-*+]{3,}\s*$/gm, '')      // horizontal rules ---
+    .replace(/\|/g, ' ')                     // table pipes
+    .replace(/[#*`>_~\[\]]/g, '')            // leftover markup chars
+    .replace(/\s+/g, ' ')
+    .trim()
+
+  // Drop a leading repeat of the title (cards already show the title)
+  const t = title.replace(/[*_`]/g, '').trim()
+  if (t && text.toLowerCase().startsWith(t.toLowerCase())) {
+    text = text.slice(t.length).replace(/^[\s:–—-]+/, '').trim()
+  }
+
+  return text.length > max ? text.slice(0, max).trim() + '…' : text
+}
+
 // Convert > [!type] callout blocks to HTML
 function processCallouts(md) {
   const lines  = md.split('\n')
@@ -226,7 +323,7 @@ async function processEmbeds(md) {
 
       const { content: embedBody } = matter(raw)
       // Render embed content (skip further embeds to avoid infinite loops)
-      const simpleBody  = embedBody.replace(/!\[\[[^\]]+\]\]/g, '')
+      const simpleBody  = stripDMSections(embedBody).replace(/!\[\[[^\]]+\]\]/g, '')
       const withLinks   = processWikilinks(processCallouts(simpleBody))
       const embedHtml   = marked.parse(withLinks)
 
@@ -242,13 +339,19 @@ async function processEmbeds(md) {
 // ── Phase 2: Render a single page ────────────────────────────
 async function renderFile(filePath, sessions, css) {
   const raw          = await fs.readFile(filePath, 'utf-8')
-  const { data: fm, content: body } = matter(raw)
+  const { data: fm, content: rawBody } = matter(raw)
 
   if (isDMOnly(fm)) return null
+
+  // Remove any DM-only sections before rendering or indexing
+  let body = stripDMSections(rawBody)
 
   const urlPath = toUrlPath(filePath)
   const name    = path.basename(filePath, '.md')
   const title   = fm.title || name
+
+  // Drop a leading H1 that just repeats the page title
+  body = stripDuplicateTitle(body, title)
 
   // Subtitle from frontmatter (optional)
   const subtitle = fm.subtitle || fm.description || null
@@ -272,6 +375,7 @@ async function renderFile(filePath, sessions, css) {
   processed = processWikilinks(processed)
   let html = marked.parse(processed)
   html = addHeadingIds(html)
+  html = wrapTables(html)
   const toc  = extractTOC(html)
 
   // Excerpt for search index
@@ -316,12 +420,13 @@ async function renderSectionIndex(label, folder, sessions, css) {
           await collectPages(full, e.name)
         } else if (e.name.endsWith('.md')) {
           const raw = await fs.readFile(full, 'utf-8')
-          const { data: fm } = matter(raw)
+          const { data: fm, content } = matter(raw)
           if (isDMOnly(fm)) continue
           const n    = e.name.replace('.md', '')
           const t    = fm.title || n
           const urlP = toUrlPath(full)
-          cards.push({ title: t, href: toHref(urlP), group: groupLabel })
+          const desc = fm.subtitle || fm.description || shortExcerpt(content, t)
+          cards.push({ title: t, href: toHref(urlP), group: groupLabel, desc })
         }
       }
     } catch (_) {}
@@ -346,6 +451,7 @@ async function renderSectionIndex(label, folder, sessions, css) {
         items.map(c =>
           `<a href="${c.href}" class="index-card">
             <div class="ic-title">${c.title}</div>
+            ${c.desc ? `<div class="ic-desc">${c.desc}</div>` : ''}
           </a>`
         ).join('') +
       `</div>`
@@ -415,18 +521,20 @@ async function buildAllSubfolderIndexes(sessions, css) {
           cards.push({ title: c.name, href: subUrl, isFolder: true })
         } else if (c.name.endsWith('.md')) {
           const raw = await fs.readFile(cfull, 'utf-8')
-          const { data: fm } = matter(raw)
+          const { data: fm, content } = matter(raw)
           if (isDMOnly(fm)) continue
           const n = c.name.replace('.md', '')
-          cards.push({ title: fm.title || n, href: toHref(toUrlPath(cfull)) })
+          const desc = fm.subtitle || fm.description || shortExcerpt(content, fm.title || n)
+          cards.push({ title: fm.title || n, href: toHref(toUrlPath(cfull)), desc })
         }
       }
 
       if (cards.length > 0) {
         const gridHTML = `<div class="index-grid">` +
           cards.map(c =>
-            `<a href="${c.href}" class="index-card">
+            `<a href="${c.href}" class="index-card${c.isFolder ? ' folder-card' : ''}">
               <div class="ic-title">${c.title}</div>
+              ${c.desc ? `<div class="ic-desc">${c.desc}</div>` : ''}
             </a>`
           ).join('') +
         `</div>`

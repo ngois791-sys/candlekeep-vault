@@ -48,6 +48,13 @@ module.exports = {
   // Any file with this tag in its frontmatter will be hidden
   dmOnlyTag: "dm-only",
 
+  // ── DM-Only Section Marker ────────────────────────────────
+  // Any HEADING whose text contains this word hides that whole
+  // section (the heading + everything under it) from players,
+  // up to the next heading at the same or higher level.
+  // Public content resumes after it. Change the word if you like.
+  dmOnlySectionMarker: "DM-only",
+
   // ── Navigation Structure ──────────────────────────────────
   // Explore section — maps nav labels to vault folders
   // To add a section: { label: "My Section", folder: "My Folder" }

@@ -37,6 +37,9 @@ body {
   min-height:  100vh;
   display:     flex;
   flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* ── Top Bar ──────────────────────────────────────────────── */
@@ -191,10 +194,10 @@ body {
   font-family: 'Crimson Pro', Georgia, serif;
   font-size:   0.82rem;
   color:       var(--muted);
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   display:     flex;
   align-items: center;
-  gap:         5px;
+  gap:         7px;
   flex-wrap:   wrap;
 }
 
@@ -294,6 +297,15 @@ body {
 .content em     { color: var(--text); }
 
 /* Tables */
+.content .table-wrap {
+  overflow-x:    auto;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.content .table-wrap table { margin-bottom: 0; }
+
 .content table {
   width:           100%;
   border-collapse: collapse;
@@ -459,31 +471,51 @@ a.wikilink:hover { color: var(--accent-h); }
 /* ── Section Index Pages ──────────────────────────────────── */
 .index-grid {
   display:               grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-  gap:                   12px;
-  margin-top:            24px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap:                   14px;
+  margin-top:            22px;
 }
 
 .index-card {
   background:    var(--sidebar-bg);
   border:        1px solid var(--border);
-  border-radius: 8px;
-  padding:       14px 18px;
+  border-radius: 10px;
+  padding:       15px 18px;
   text-decoration: none;
-  display:       block;
-  transition:    border-color 0.12s, background 0.12s;
+  display:       flex;
+  flex-direction: column;
+  gap:           5px;
+  box-shadow:    0 1px 2px rgba(0, 0, 0, 0.18);
+  transition:    border-color 0.14s, background 0.14s, transform 0.14s, box-shadow 0.14s;
 }
 
 .index-card:hover {
   border-color: var(--accent);
   background:   rgba(126, 171, 138, 0.07);
+  transform:    translateY(-2px);
+  box-shadow:   0 6px 18px rgba(0, 0, 0, 0.28);
 }
 
 .ic-title {
   font-family: 'Lora', Georgia, serif;
-  font-size:   1rem;
+  font-size:   1.02rem;
   color:       var(--heading);
-  line-height: 1.4;
+  line-height: 1.35;
+}
+
+.ic-desc {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size:   0.84rem;
+  color:       var(--muted);
+  line-height: 1.45;
+}
+
+/* Folder cards get a small folder glyph */
+.folder-card .ic-title::before {
+  content:      "📁";
+  margin-right: 7px;
+  font-size:    0.9em;
+  opacity:      0.85;
 }
 
 .empty-msg {
