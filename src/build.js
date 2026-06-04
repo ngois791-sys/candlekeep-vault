@@ -153,6 +153,27 @@ function stripDuplicateTitle(md, title) {
   return md
 }
 
+// Remove entire DM-only callout blocks (e.g. > [!secret]) from markdown,
+// so they never reach the player site, search index, or embeds.
+function stripDMCallouts(md) {
+  const types = (config.dmOnlyCalloutTypes || []).map(t => String(t).toLowerCase())
+  if (!types.length) return md
+  const lines = md.split('\n')
+  const out   = []
+  let i = 0
+  while (i < lines.length) {
+    const m = lines[i].match(/^>\s*\[!([\w-]+)\]/)
+    if (m && types.includes(m[1].toLowerCase())) {
+      i++   // skip the header line
+      while (i < lines.length && lines[i].startsWith('>')) i++  // and the body
+      continue
+    }
+    out.push(lines[i])
+    i++
+  }
+  return out.join('\n')
+}
+
 // Wrap tables so wide ones scroll horizontally instead of overflowing on mobile
 function wrapTables(html) {
   return html
@@ -198,7 +219,11 @@ function processCallouts(md) {
     if (headerMatch) {
       const type    = headerMatch[1].toLowerCase()
       const rawTitle = headerMatch[2].trim()
-      const title   = rawTitle || (type.charAt(0).toUpperCase() + type.slice(1))
+      const defaultLabel = type.charAt(0).toUpperCase() + type.slice(1)
+      // If the "title" is actually a long sentence (a mis-authored callout),
+      // fall back to the type label and move the text into the body.
+      const longTitle = rawTitle.length > 56
+      const title    = longTitle ? defaultLabel : (rawTitle || defaultLabel)
       const bodyLines = []
 
       i++
@@ -207,7 +232,8 @@ function processCallouts(md) {
         i++
       }
 
-      const body = marked.parse(bodyLines.join('\n'))
+      const bodyMd = (longTitle ? rawTitle + '\n\n' : '') + bodyLines.join('\n')
+      const body = marked.parse(bodyMd)
       out.push(
         `<div class="callout callout-${type}" data-callout="${type}">` +
         `<div class="callout-title">${title}</div>` +
@@ -323,7 +349,7 @@ async function processEmbeds(md) {
 
       const { content: embedBody } = matter(raw)
       // Render embed content (skip further embeds to avoid infinite loops)
-      const simpleBody  = stripDMSections(embedBody).replace(/!\[\[[^\]]+\]\]/g, '')
+      const simpleBody  = stripDMCallouts(stripDMSections(embedBody)).replace(/!\[\[[^\]]+\]\]/g, '')
       const withLinks   = processWikilinks(processCallouts(simpleBody))
       const embedHtml   = marked.parse(withLinks)
 
@@ -337,14 +363,14 @@ async function processEmbeds(md) {
 }
 
 // ── Phase 2: Render a single page ────────────────────────────
-async function renderFile(filePath, sessions, css) {
+async function renderFile(filePath, sessions, css, opts = {}) {
   const raw          = await fs.readFile(filePath, 'utf-8')
   const { data: fm, content: rawBody } = matter(raw)
 
   if (isDMOnly(fm)) return null
 
-  // Remove any DM-only sections before rendering or indexing
-  let body = stripDMSections(rawBody)
+  // Remove any DM-only sections and DM-only callouts before rendering/indexing
+  let body = stripDMCallouts(stripDMSections(rawBody))
 
   const urlPath = toUrlPath(filePath)
   const name    = path.basename(filePath, '.md')
@@ -388,7 +414,8 @@ async function renderFile(filePath, sessions, css) {
 
   const page = buildPage({
     title, subtitle, tags, breadcrumb, toc,
-    content: html, sessions, css
+    content: html, sessions, css,
+    layout: opts.isHome ? 'home' : 'entry'
   })
 
   return {
@@ -460,7 +487,7 @@ async function renderSectionIndex(label, folder, sessions, css) {
 
   const html = buildPage({
     title: label, subtitle: null, tags: [], breadcrumb: [],
-    toc: [], content: gridHTML, sessions, css
+    toc: [], content: gridHTML, sessions, css, layout: 'section'
   })
 
   const outPath = path.join(OUTPUT, ...folder.split('/'), 'index.html')
@@ -549,7 +576,7 @@ async function buildAllSubfolderIndexes(sessions, css) {
         const html = buildPage({
           title: label, subtitle: null, tags: [], toc: [],
           breadcrumb: crumb,
-          content: gridHTML, sessions, css
+          content: gridHTML, sessions, css, layout: 'section'
         })
 
         const outPath = path.join(OUTPUT, path.relative(CONTENT, full), 'index.html')
@@ -665,7 +692,7 @@ async function main() {
   const calBanner = buildCalendarBanner(calendar)
   const homeMd = path.join(CONTENT, 'index.md')
   if (await fs.pathExists(homeMd)) {
-    const result = await renderFile(homeMd, sessions, css)
+    const result = await renderFile(homeMd, sessions, css, { isHome: true })
     if (result) {
       // Inject calendar banner at the top of home page content
       const homeHTML = result.page.replace(

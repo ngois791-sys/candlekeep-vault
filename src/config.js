@@ -55,19 +55,29 @@ module.exports = {
   // Public content resumes after it. Change the word if you like.
   dmOnlySectionMarker: "DM-only",
 
+  // ── DM-Only Callout Types ─────────────────────────────────
+  // Callouts of these types are removed entirely from the player
+  // site (and search). In Obsidian they still show, so you see them.
+  // Usage in a note:
+  //   > [!secret]
+  //   > Only the DM should ever read this.
+  dmOnlyCalloutTypes: ["secret", "dm"],
+
   // ── Navigation Structure ──────────────────────────────────
   // Explore section — maps nav labels to vault folders
   // To add a section: { label: "My Section", folder: "My Folder" }
   // To remove a section: delete the line
+  // The optional `description` shows on the home-page section cards.
   explore: [
-    { label: "Characters",  folder: "Campaign Notes/NPCs"       },
-    { label: "Locations",   folder: "Campaign Notes/Locations"  },
-    { label: "Factions",    folder: "Campaign Notes/Factions"   },
-    { label: "Lore",        folder: "Lore"                      },
-    { label: "Candlekeep",  folder: "CandleKeep"                },
+    { label: "Characters",  folder: "Campaign Notes/NPCs",      description: "The allies, rivals, and strange folk the party has met." },
+    { label: "Locations",   folder: "Campaign Notes/Locations", description: "Places the company has traveled and the maps they've drawn." },
+    { label: "Factions",    folder: "Campaign Notes/Factions",  description: "The orders and powers vying for influence across the realm." },
+    { label: "Lore",        folder: "Lore",                     description: "Histories, legends, and the deeper truths of the world." },
+    { label: "Candlekeep",  folder: "CandleKeep",               description: "The great fortress-library and its many secret doors." },
   ],
 
   // Sessions section — auto-populated from this folder
   sessionsFolder: "Campaign Notes/Sessions",
+  sessionsDescription: "A session-by-session chronicle of the adventure so far.",
 
 }

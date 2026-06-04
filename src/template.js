@@ -1,162 +1,160 @@
 // ============================================================
 // The Candlekeep Vault — HTML Template
+// Art-deco / dark-academia layout (Eberron-style) in Candlekeep colors
 // ============================================================
 
 const config = require('./config')
 
-// Build the sidebar navigation HTML
-function buildNavHTML(sessions) {
+// ── Top navigation ───────────────────────────────────────────
+function buildNavHTML() {
   const base = config.site.baseUrl
-
-  let html = `<div class="nav-section">
-    <div class="nav-label">Explore</div>`
-
-  for (const item of config.explore) {
-    const href = `${base}/${encodeURI(item.folder)}/`
-    html += `<a href="${href}" class="nav-item">${item.label}</a>`
-  }
-
-  html += `</div><hr class="nav-divider">`
-  html += `<div class="nav-section"><div class="nav-label">Sessions</div>`
-
-  if (sessions.length === 0) {
-    html += `<span class="nav-item nav-empty">No sessions yet</span>`
-  } else {
-    for (const s of sessions) {
-      html += `<a href="${s.url}" class="nav-item">${s.label}</a>`
-    }
-  }
-
-  html += `</div>`
-  return html
+  const links = config.explore.map(item =>
+    `<a href="${base}/${encodeURI(item.folder)}/">${item.label}</a>`
+  )
+  // Sessions section index (built automatically for the sessions folder)
+  links.push(`<a href="${base}/${encodeURI(config.sessionsFolder)}/">Sessions</a>`)
+  return `<nav class="site-nav">${links.join('')}</nav>`
 }
 
-// Build right-side table of contents HTML
-function buildTOCHTML(toc) {
-  if (!toc || toc.length === 0) return ''
-  let html = `<div class="toc"><div class="toc-label">On this page</div><div class="toc-items">`
-  for (const item of toc) {
-    const subClass = item.level === 3 ? ' toc-sub' : ''
-    html += `<a href="#${item.id}" class="toc-item${subClass}">${item.text}</a>`
-  }
-  html += `</div></div>`
-  return html
-}
-
-// Build tag pills HTML
+// ── Tag pills ─────────────────────────────────────────────────
 function buildTagsHTML(tags) {
   if (!tags || tags.length === 0) return ''
   const filtered = tags.filter(t => t.toLowerCase() !== config.dmOnlyTag)
   if (filtered.length === 0) return ''
-  const base = config.site.baseUrl
   return `<div class="tags">` +
-    filtered.map(tag =>
-      `<span class="tag">${tag}</span>`
-    ).join('') +
+    filtered.map(tag => `<span class="tag">${tag}</span>`).join('') +
   `</div>`
 }
 
-// Build breadcrumb HTML — a single clean trail
-function buildBreadcrumbHTML(breadcrumb) {
-  if (!breadcrumb || breadcrumb.length === 0) return ''
-  const base = config.site.baseUrl
-  const sep  = `<span class="sep">›</span>`
-  const trail = breadcrumb
-    .map(b => `<a href="${b.url}">${b.label}</a>`)
-    .join(sep)
-  return `<nav class="breadcrumb"><a href="${base}/">Home</a>${sep}${trail}</nav>`
+// Immediate parent section (last breadcrumb entry), if any
+function parentOf(breadcrumb) {
+  if (!breadcrumb || breadcrumb.length === 0) return null
+  return breadcrumb[breadcrumb.length - 1]
 }
 
-// Shared search + nav JS (inlined into every page)
+// Eyebrow label above a title (the section the page lives in)
+function eyebrowHTML(breadcrumb, fallback) {
+  const parent = parentOf(breadcrumb)
+  const label = parent ? parent.label : fallback
+  if (!label) return ''
+  return `<div class="eyebrow">${label}</div>`
+}
+
+// "← back to parent" link
+function backLinkHTML(breadcrumb) {
+  const parent = parentOf(breadcrumb)
+  if (!parent) return ''
+  return `<a class="back-link" href="${parent.url}">← ${parent.label}</a>`
+}
+
+// ── Page-head variants ────────────────────────────────────────
+function headerForLayout(layout, { title, subtitle, tags, breadcrumb }) {
+  const tagsHTML = buildTagsHTML(tags)
+
+  if (layout === 'home') {
+    return `
+      <section class="hero">
+        <div class="ornament">◆ ◆ ◆</div>
+        <h1>${title}</h1>
+        ${subtitle ? `<p class="lede">${subtitle}</p>` : ''}
+        <div class="hero-rule"></div>
+      </section>`
+  }
+
+  if (layout === 'section') {
+    return `
+      <header class="section-head">
+        ${eyebrowHTML(breadcrumb, 'Explore')}
+        <h1>${title}</h1>
+        ${subtitle ? `<p>${subtitle}</p>` : ''}
+      </header>`
+  }
+
+  // entry (default)
+  return `
+    ${eyebrowHTML(breadcrumb, '')}
+    <h1 class="entry-title">${title}</h1>
+    ${subtitle ? `<p class="entry-subtitle">${subtitle}</p>` : ''}
+    ${tagsHTML}`
+}
+
+// ── Home-page section cards ───────────────────────────────────
+function buildHomeSectionsHTML() {
+  const base = config.site.baseUrl
+  const cards = config.explore.map(item => ({
+    label: item.label,
+    href:  `${base}/${encodeURI(item.folder)}/`,
+    desc:  item.description || ''
+  }))
+  cards.push({
+    label: 'Sessions',
+    href:  `${base}/${encodeURI(config.sessionsFolder)}/`,
+    desc:  config.sessionsDescription || ''
+  })
+
+  return `
+    <section class="home-sections">
+      <div class="eyebrow">Explore the Vault</div>
+      <div class="index-grid">
+        ${cards.map(c =>
+          `<a class="index-card" href="${c.href}">
+            <div class="ic-title">${c.label}</div>
+            ${c.desc ? `<div class="ic-desc">${c.desc}</div>` : ''}
+          </a>`
+        ).join('')}
+      </div>
+    </section>`
+}
+
+// ── Shared search + nav JS ────────────────────────────────────
 function sharedJS() {
   const base = config.site.baseUrl
   return `
-    // ── Search ───────────────────────────────────────────────
     let searchIndex = null
-
-    async function loadIndex() {
-      try {
-        const r = await fetch('${base}/search-index.json')
-        searchIndex = await r.json()
-      } catch(e) {}
-    }
-    loadIndex()
-
-    function openSearch() {
-      document.getElementById('search-modal').classList.add('open')
-      setTimeout(() => document.getElementById('search-input').focus(), 50)
-    }
-
-    function closeSearch() {
-      document.getElementById('search-modal').classList.remove('open')
-      document.getElementById('search-input').value = ''
-      document.getElementById('search-results').innerHTML = ''
-    }
-
-    function closeOnBackdrop(e) {
-      if (e.target.id === 'search-modal') closeSearch()
-    }
-
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeSearch()
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); openSearch() }
-    })
+    fetch('${base}/search-index.json').then(r => r.json()).then(d => searchIndex = d).catch(()=>{})
 
     function doSearch(q) {
-      const el = document.getElementById('search-results')
-      if (!q || q.length < 2) { el.innerHTML = ''; return }
-      if (!searchIndex) { el.innerHTML = '<div class="no-results">Loading...</div>'; return }
-      const matches = searchIndex
-        .filter(p => p.title.toLowerCase().includes(q.toLowerCase()) ||
-                     p.excerpt.toLowerCase().includes(q.toLowerCase()))
-        .slice(0, 10)
-      if (!matches.length) { el.innerHTML = '<div class="no-results">No pages found.</div>'; return }
-      el.innerHTML = matches.map(p => \`
-        <a href="\${p.url}" class="search-result" onclick="closeSearch()">
-          <div class="sr-title">\${p.title}</div>
-          <div class="sr-excerpt">\${p.excerpt.slice(0, 110)}...</div>
-        </a>
-      \`).join('')
+      const box = document.getElementById('search-results')
+      q = (q || '').trim()
+      if (q.length < 2) { box.hidden = true; box.innerHTML = ''; return }
+      if (!searchIndex) { box.hidden = false; box.innerHTML = '<span class="sr-empty">Loading…</span>'; return }
+      const ql = q.toLowerCase()
+      const hits = searchIndex
+        .filter(p => p.title.toLowerCase().includes(ql) || p.excerpt.toLowerCase().includes(ql))
+        .slice(0, 8)
+      if (!hits.length) { box.hidden = false; box.innerHTML = '<span class="sr-empty">No pages found.</span>'; return }
+      box.hidden = false
+      box.innerHTML = hits.map(p =>
+        '<a href="' + p.url + '"><span class="sr-title">' + p.title + '</span>' +
+        '<span class="sr-section">' + p.excerpt.slice(0, 60) + '…</span></a>'
+      ).join('')
     }
 
-    // ── Mobile nav ───────────────────────────────────────────
-    function toggleNav() {
-      document.getElementById('nav-inner').classList.toggle('open')
-    }
+    document.addEventListener('click', e => {
+      const wrap = document.querySelector('.site-search')
+      if (wrap && !wrap.contains(e.target)) document.getElementById('search-results').hidden = true
+    })
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { const b = document.getElementById('search-results'); if (b) b.hidden = true }
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); const i = document.getElementById('search-input'); if (i) i.focus() }
+    })
 
-    // ── Active nav link ──────────────────────────────────────
-    const here = window.location.pathname
-    document.querySelectorAll('.nav-item').forEach(a => {
-      if (here.startsWith(a.getAttribute('href'))) a.classList.add('active')
+    // Highlight the active top-nav link
+    const here = decodeURIComponent(window.location.pathname)
+    document.querySelectorAll('.site-nav a').forEach(a => {
+      const href = decodeURIComponent(a.getAttribute('href'))
+      if (href !== '${base}/' && here.startsWith(href)) a.classList.add('active')
     })
   `
 }
 
-// Search modal HTML (same on every page)
-function searchModalHTML() {
-  return `
-  <div class="search-modal" id="search-modal" onclick="closeOnBackdrop(event)">
-    <div class="search-box">
-      <input
-        id="search-input"
-        class="search-input"
-        type="text"
-        placeholder="Search the vault..."
-        oninput="doSearch(this.value)"
-        autocomplete="off"
-      >
-      <div class="search-results" id="search-results"></div>
-    </div>
-  </div>`
-}
-
-// Full page HTML — used for every page
-function buildPage({ title, subtitle, tags, breadcrumb, toc, content, sessions, css }) {
-  const navHTML   = buildNavHTML(sessions)
-  const tocHTML   = buildTOCHTML(toc)
-  const tagsHTML  = buildTagsHTML(tags)
-  const crumbHTML = buildBreadcrumbHTML(breadcrumb)
-  const base      = config.site.baseUrl
+// ── Full page ─────────────────────────────────────────────────
+function buildPage({ title, subtitle, tags, breadcrumb, toc, content, sessions, css, layout = 'entry' }) {
+  const base    = config.site.baseUrl
+  const navHTML = buildNavHTML()
+  const head    = headerForLayout(layout, { title, subtitle, tags, breadcrumb })
+  const back    = layout === 'entry' ? backLinkHTML(breadcrumb) : ''
+  const wrapClass = layout === 'entry' ? 'wrap entry' : 'wrap'
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -166,57 +164,43 @@ function buildPage({ title, subtitle, tags, breadcrumb, toc, content, sessions, 
   <title>${title} | ${config.site.title}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
   <style>${css}</style>
 </head>
 <body>
 
-  <!-- ── Top Bar ─────────────────────────────────────────── -->
-  <header class="topbar">
-    <a href="${base}/" class="site-title">
-      <span class="site-emoji">${config.site.emoji}</span>
-      <span class="title-main">The Candlekeep</span>
-      <span class="title-sub">Vault</span>
-    </a>
-    <button class="search-btn" onclick="openSearch()">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      Search the vault...
-    </button>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="${base}/" class="brand">
+        <span class="brand-mark">${config.site.emoji}</span>
+        ${config.site.title}
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation"
+              onclick="document.body.classList.toggle('nav-open')">☰</button>
+      ${navHTML}
+      <div class="site-search">
+        <input id="search-input" type="text" placeholder="Search…"
+               autocomplete="off" oninput="doSearch(this.value)">
+        <div id="search-results" class="search-results" hidden></div>
+      </div>
+    </div>
   </header>
 
-  <div class="layout">
-
-    <!-- ── Left Sidebar ──────────────────────────────────── -->
-    <nav class="sidebar">
-      <button class="mob-toggle" onclick="toggleNav()">☰ Menu</button>
-      <div class="nav-inner" id="nav-inner">
-        ${navHTML}
-      </div>
-    </nav>
-
-    <!-- ── Main Content ───────────────────────────────────── -->
-    <main class="main">
-      ${crumbHTML}
-      <h1 class="page-title">${title}</h1>
-      ${subtitle ? `<p class="page-subtitle">${subtitle}</p>` : ''}
-      ${tagsHTML}
+  <main class="site-main">
+    <div class="${wrapClass}">
+      ${head}
       <div class="content">
         ${content}
       </div>
-    </main>
+      ${layout === 'home' ? buildHomeSectionsHTML() : ''}
+      ${back}
+    </div>
+  </main>
 
-    <!-- ── Right TOC ──────────────────────────────────────── -->
-    ${tocHTML ? `<aside class="toc-sidebar">${tocHTML}</aside>` : ''}
-
-  </div>
-
-  <!-- ── Footer ─────────────────────────────────────────── -->
-  <footer class="footer">
-    <span class="footer-brand">✦ ${config.site.title} ✦</span>
-    <span class="footer-tagline">${config.site.footer}</span>
+  <footer class="site-footer">
+    <p class="footer-brand">✦ ${config.site.title} ✦</p>
+    <p class="footer-tagline">${config.site.footer}</p>
   </footer>
-
-  ${searchModalHTML()}
 
   <script>${sharedJS()}</script>
 </body>
