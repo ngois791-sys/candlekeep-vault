@@ -42,11 +42,23 @@ module.exports = {
     "Keepers of the Forbidden Lore",
     "Mechanics",
     "Adventures",
+    "z_Downloads",
+    "z_Maps",
   ],
 
   // ── DM-Only Tag ───────────────────────────────────────────
   // Any file with this tag in its frontmatter will be hidden
   dmOnlyTag: "dm-only",
+
+  // ── Hidden Tags ───────────────────────────────────────────
+  // Tags listed here are kept OUT of the Tags page and the tag pills
+  // on pages (case-insensitive). Use it for organizational tags you
+  // don't want players browsing by. The dm-only tag is always hidden.
+  hiddenTags: [
+    // "SessionPrep",
+    // "Campaign",
+    // "AdventureTracker",
+  ],
 
   // ── DM-Only Section Marker ────────────────────────────────
   // Any HEADING whose text contains this word hides that whole
@@ -79,5 +91,36 @@ module.exports = {
   // Sessions section — auto-populated from this folder
   sessionsFolder: "Campaign Notes/Sessions",
   sessionsDescription: "A session-by-session chronicle of the adventure so far.",
+
+  // ── Downloads page ────────────────────────────────────────
+  // A "Resource Library" page (linked in the nav) listing files for
+  // players to save or print. Just drop files into this folder in your
+  // vault — they appear automatically. Set to null to hide the page.
+  downloadsFolder: "z_Downloads",
+  downloadsDescription: "Maps, handouts, and references to save or print.",
+
+  // Optional friendly titles/descriptions, keyed by exact file name.
+  // Any file NOT listed here still appears, using its file name as the title.
+  downloadLabels: {
+    "Sword-Coast-Map_HighRes.jpg": {
+      title: "Sword Coast — Full Map (High-Res)",
+      description: "10,200 × 6,600 px. Great for printing or zooming right in.",
+    },
+  },
+
+  // ── Maps gallery ──────────────────────────────────────────
+  // A gallery page (linked in the nav) of map images. Drop image files
+  // into this folder in your vault and they appear automatically.
+  // Set to null to hide the page.
+  mapsFolder: "z_Maps",
+  mapsDescription: "Charts of the realms the party has explored. Click a map to view it full size.",
+
+  // Optional captions, keyed by exact file name.
+  mapLabels: {
+    "sword-coast.jpg": {
+      title: "The Sword Coast",
+      description: "The western coast of Faerûn — Baldur's Gate, Candlekeep, and the lands between.",
+    },
+  },
 
 }

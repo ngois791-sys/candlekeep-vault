@@ -13,16 +13,31 @@ function buildNavHTML() {
   )
   // Sessions section index (built automatically for the sessions folder)
   links.push(`<a href="${base}/${encodeURI(config.sessionsFolder)}/">Sessions</a>`)
+  if (config.mapsFolder) links.push(`<a href="${base}/maps/">Maps</a>`)
+  links.push(`<a href="${base}/tags/">Tags</a>`)
+  if (config.downloadsFolder) links.push(`<a href="${base}/downloads/">Downloads</a>`)
   return `<nav class="site-nav">${links.join('')}</nav>`
 }
 
-// ── Tag pills ─────────────────────────────────────────────────
+// Tag display name → URL slug (must match build.js slugifyTag)
+function slugifyTag(t) {
+  return String(t).toLowerCase().trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
+// ── Tag pills (clickable → /tags/<slug>/) ─────────────────────
 function buildTagsHTML(tags) {
   if (!tags || tags.length === 0) return ''
-  const filtered = tags.filter(t => t.toLowerCase() !== config.dmOnlyTag)
+  const base = config.site.baseUrl
+  const hidden = new Set([String(config.dmOnlyTag).toLowerCase(),
+    ...(config.hiddenTags || []).map(t => String(t).toLowerCase())])
+  const filtered = tags.filter(t => !hidden.has(String(t).toLowerCase()))
   if (filtered.length === 0) return ''
   return `<div class="tags">` +
-    filtered.map(tag => `<span class="tag">${tag}</span>`).join('') +
+    filtered.map(tag =>
+      `<a class="tag" href="${base}/tags/${slugifyTag(tag)}/">${tag}</a>`
+    ).join('') +
   `</div>`
 }
 
@@ -48,7 +63,7 @@ function backLinkHTML(breadcrumb) {
 }
 
 // ── Page-head variants ────────────────────────────────────────
-function headerForLayout(layout, { title, subtitle, tags, breadcrumb }) {
+function headerForLayout(layout, { title, subtitle, tags, breadcrumb, eyebrow }) {
   const tagsHTML = buildTagsHTML(tags)
 
   if (layout === 'home') {
@@ -62,9 +77,10 @@ function headerForLayout(layout, { title, subtitle, tags, breadcrumb }) {
   }
 
   if (layout === 'section') {
+    const eb = eyebrow ? `<div class="eyebrow">${eyebrow}</div>` : eyebrowHTML(breadcrumb, 'Explore')
     return `
       <header class="section-head">
-        ${eyebrowHTML(breadcrumb, 'Explore')}
+        ${eb}
         <h1>${title}</h1>
         ${subtitle ? `<p>${subtitle}</p>` : ''}
       </header>`
@@ -91,6 +107,20 @@ function buildHomeSectionsHTML() {
     href:  `${base}/${encodeURI(config.sessionsFolder)}/`,
     desc:  config.sessionsDescription || ''
   })
+  if (config.mapsFolder) {
+    cards.push({
+      label: 'Maps',
+      href:  `${base}/maps/`,
+      desc:  config.mapsDescription || ''
+    })
+  }
+  if (config.downloadsFolder) {
+    cards.push({
+      label: 'Downloads',
+      href:  `${base}/downloads/`,
+      desc:  config.downloadsDescription || ''
+    })
+  }
 
   return `
     <section class="home-sections">
@@ -149,10 +179,10 @@ function sharedJS() {
 }
 
 // ── Full page ─────────────────────────────────────────────────
-function buildPage({ title, subtitle, tags, breadcrumb, toc, content, sessions, css, layout = 'entry' }) {
+function buildPage({ title, subtitle, tags, breadcrumb, toc, content, sessions, css, layout = 'entry', eyebrow = null }) {
   const base    = config.site.baseUrl
   const navHTML = buildNavHTML()
-  const head    = headerForLayout(layout, { title, subtitle, tags, breadcrumb })
+  const head    = headerForLayout(layout, { title, subtitle, tags, breadcrumb, eyebrow })
   const back    = layout === 'entry' ? backLinkHTML(breadcrumb) : ''
   const wrapClass = layout === 'entry' ? 'wrap entry' : 'wrap'
 

@@ -34,6 +34,24 @@ marked.use(markedHighlight({
 // Maps filename (lower-case) → { url, title }  for wikilink resolution
 const registry = new Map()
 
+// ── Tag Index ─────────────────────────────────────────────────
+// lowercased tag → { name (display), slug, pages: [{title, href}] }
+const tagIndex = new Map()
+
+// Tags to keep out of the Tags page / pills (case-insensitive)
+function hiddenTagSet() {
+  const set = new Set([String(config.dmOnlyTag).toLowerCase()])
+  for (const t of (config.hiddenTags || [])) set.add(String(t).toLowerCase())
+  return set
+}
+
+// Tag display name → URL slug
+function slugifyTag(t) {
+  return String(t).toLowerCase().trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
 // ── Helpers ───────────────────────────────────────────────────
 
 function isIgnored(filePath) {
@@ -283,6 +301,8 @@ async function scan() {
 
   await walk(CONTENT)
 
+  const hidden = hiddenTagSet()
+
   // Build registry for wikilink resolution
   for (const f of files) {
     const raw  = await fs.readFile(f, 'utf-8')
@@ -303,9 +323,22 @@ async function scan() {
     for (const a of aliases) {
       registry.set(String(a).toLowerCase(), entry)
     }
+
+    // Collect tags for the Tags index
+    const tags = Array.isArray(fm.tags) ? fm.tags : (fm.tags ? [fm.tags] : [])
+    for (const raw of tags) {
+      const display = String(raw).trim()
+      if (!display) continue
+      const key = display.toLowerCase()
+      if (hidden.has(key)) continue
+      if (!tagIndex.has(key)) {
+        tagIndex.set(key, { name: display, slug: slugifyTag(display), pages: [] })
+      }
+      tagIndex.get(key).pages.push({ title, href: entry.href })
+    }
   }
 
-  console.log(`✅ ${registry.size} pages indexed`)
+  console.log(`✅ ${registry.size} pages indexed · ${tagIndex.size} tags`)
   return files
 }
 
@@ -655,6 +688,175 @@ async function readCalendar() {
   }
 }
 
+// ── Downloads ("Resource Library") page ───────────────────────
+async function buildDownloadsPage(css) {
+  const folderName = config.downloadsFolder
+  if (!folderName) return
+
+  const srcDir = path.join(CONTENT, folderName)
+  const dstDir = path.join(OUTPUT, 'downloads')
+  const labels = config.downloadLabels || {}
+
+  // Collect actual files in the folder
+  let files = []
+  try {
+    const entries = await fs.readdir(srcDir, { withFileTypes: true })
+    files = entries
+      .filter(e => e.isFile() && !e.name.startsWith('.'))
+      .map(e => e.name)
+      .sort((a, b) => a.localeCompare(b))
+  } catch (_) { /* folder doesn't exist yet */ }
+
+  // Copy the files to the published site
+  if (await fs.pathExists(srcDir)) {
+    await fs.copy(srcDir, dstDir, {
+      filter: src => !path.basename(src).startsWith('.')
+    })
+  }
+
+  const prettify = n => n
+    .replace(/\.[^.]+$/, '')
+    .replace(/[-_]+/g, ' ')
+    .trim()
+    .replace(/\b\w/g, c => c.toUpperCase())
+
+  const items = files.map(name => {
+    const ext   = (path.extname(name).slice(1) || 'file').toUpperCase()
+    const meta  = labels[name] || {}
+    const title = meta.title || prettify(name)
+    const desc  = meta.description || ''
+    const href  = `${config.site.baseUrl}/downloads/${encodeURIComponent(name)}`
+    return `<li class="download">
+      <span class="dl-type">${ext}</span>
+      <div class="dl-body"><h3>${title}</h3>${desc ? `<p>${desc}</p>` : ''}</div>
+      <a class="dl-btn" href="${href}" download>Download</a>
+    </li>`
+  })
+
+  const listHTML = items.length
+    ? `<ul class="downloads">${items.join('')}</ul>`
+    : `<p class="empty-msg">No downloads yet. Drop files into <code>content/${folderName}</code> in your vault, then commit &amp; push — they'll appear here automatically.</p>`
+
+  const html = buildPage({
+    title:    'Downloads',
+    subtitle: config.downloadsDescription || null,
+    tags: [], breadcrumb: [], toc: [],
+    content: listHTML, sessions: [], css,
+    layout: 'section', eyebrow: 'Resource Library'
+  })
+
+  await fs.ensureDir(dstDir)
+  await fs.writeFile(path.join(dstDir, 'index.html'), html)
+  console.log(`📥 Downloads page: ${items.length} file(s)`)
+}
+
+// ── Maps gallery page ─────────────────────────────────────────
+async function buildMapsPage(css) {
+  const folderName = config.mapsFolder
+  if (!folderName) return
+
+  const srcDir  = path.join(CONTENT, folderName)
+  const dstDir  = path.join(OUTPUT, 'maps')
+  const labels  = config.mapLabels || {}
+  const imageRe = /\.(png|jpe?g|webp|gif|svg)$/i
+
+  let files = []
+  try {
+    const entries = await fs.readdir(srcDir, { withFileTypes: true })
+    files = entries
+      .filter(e => e.isFile() && imageRe.test(e.name))
+      .map(e => e.name)
+      .sort((a, b) => a.localeCompare(b))
+  } catch (_) { /* folder doesn't exist yet */ }
+
+  if (await fs.pathExists(srcDir)) {
+    await fs.copy(srcDir, dstDir, { filter: src => !path.basename(src).startsWith('.') })
+  }
+
+  const prettify = n => n
+    .replace(/\.[^.]+$/, '').replace(/[-_]+/g, ' ').trim()
+    .replace(/\b\w/g, c => c.toUpperCase())
+
+  const figures = files.map(name => {
+    const meta  = labels[name] || {}
+    const title = meta.title || prettify(name)
+    const desc  = meta.description || ''
+    const href  = `${config.site.baseUrl}/maps/${encodeURIComponent(name)}`
+    return `<figure class="map-figure">
+      <a href="${href}" target="_blank" rel="noopener"><img src="${href}" alt="${title}" loading="lazy"></a>
+      <figcaption><strong>${title}</strong>${desc ? `<br>${desc}` : ''}</figcaption>
+    </figure>`
+  })
+
+  const galleryHTML = figures.length
+    ? `<div class="gallery">${figures.join('')}</div>`
+    : `<p class="empty-msg">No maps yet. Drop image files into <code>content/${folderName}</code> in your vault, then commit &amp; push.</p>`
+
+  const html = buildPage({
+    title: 'Maps',
+    subtitle: config.mapsDescription || null,
+    tags: [], breadcrumb: [], toc: [],
+    content: galleryHTML, sessions: [], css,
+    layout: 'section', eyebrow: 'Atlas'
+  })
+
+  await fs.ensureDir(dstDir)
+  await fs.writeFile(path.join(dstDir, 'index.html'), html)
+  console.log(`🗺️  Maps page: ${figures.length} map(s)`)
+}
+
+// ── Tags pages (index cloud + one page per tag) ───────────────
+async function buildTagPages(css) {
+  const base = config.site.baseUrl
+  const tags = [...tagIndex.values()].sort((a, b) =>
+    a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
+  )
+
+  // Per-tag pages
+  for (const t of tags) {
+    const pages = t.pages
+      .slice()
+      .sort((a, b) => a.title.localeCompare(b.title))
+    const grid = `<div class="index-grid">` +
+      pages.map(p =>
+        `<a href="${p.href}" class="index-card"><div class="ic-title">${p.title}</div></a>`
+      ).join('') +
+    `</div>`
+
+    const count = pages.length
+    const html = buildPage({
+      title: t.name,
+      subtitle: `${count} ${count === 1 ? 'page' : 'pages'} tagged “${t.name}”.`,
+      tags: [], breadcrumb: [{ label: 'Tags', url: `${base}/tags/` }],
+      toc: [], content: grid, sessions: [], css,
+      layout: 'section', eyebrow: 'Tag'
+    })
+    const outPath = path.join(OUTPUT, 'tags', t.slug, 'index.html')
+    await fs.ensureDir(path.dirname(outPath))
+    await fs.writeFile(outPath, html)
+  }
+
+  // Tag-cloud index page
+  const cloud = tags.length
+    ? `<div class="tag-cloud">` +
+        tags.map(t =>
+          `<a href="${base}/tags/${t.slug}/" class="tag">${t.name} <span class="tag-count">${t.pages.length}</span></a>`
+        ).join('') +
+      `</div>`
+    : `<p class="empty-msg">No tags yet. Add <code>tags:</code> to a note's frontmatter in your vault and they'll appear here.</p>`
+
+  const indexHTML = buildPage({
+    title: 'Tags',
+    subtitle: 'Browse the vault by subject — click any tag to see its pages.',
+    tags: [], breadcrumb: [], toc: [],
+    content: cloud, sessions: [], css,
+    layout: 'section', eyebrow: 'Index'
+  })
+  await fs.ensureDir(path.join(OUTPUT, 'tags'))
+  await fs.writeFile(path.join(OUTPUT, 'tags', 'index.html'), indexHTML)
+  console.log(`🏷️  Tags page: ${tags.length} tag(s)`)
+}
+
 // ── Main ──────────────────────────────────────────────────────
 async function main() {
   console.log('\n🏰 Building The Candlekeep Vault...\n')
@@ -719,6 +921,15 @@ async function main() {
     await fs.copy(attachSrc, attachDst)
     console.log('📎 Attachments copied')
   }
+
+  // Downloads ("Resource Library") page
+  await buildDownloadsPage(css)
+
+  // Maps gallery
+  await buildMapsPage(css)
+
+  // Tags pages
+  await buildTagPages(css)
 
   // Search index
   await fs.writeJson(path.join(OUTPUT, 'search-index.json'), search)
