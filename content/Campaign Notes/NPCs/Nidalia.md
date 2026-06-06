@@ -31,7 +31,7 @@ She is not pristine. Her resurrection left marks — fine fractures run along he
 
 She is large — not overwhelming, but undeniably present. When she enters a room in her mind, the room becomes smaller.
 
-> [!note] At the Table She never rushes. Her head turns slowly. She considers before she speaks. If a player interrupts her or rushes an answer, she simply waits until they are finished — and then continues exactly where she left off, as if the interruption didn't happen.
+> [!note] DM — At the Table She never rushes. Her head turns slowly. She considers before she speaks. If a player interrupts her or rushes an answer, she simply waits until they are finished — and then continues exactly where she left off, as if the interruption didn't happen.
 
 ---
 
@@ -43,7 +43,7 @@ She communicates in riddles and layered metaphors not to be difficult, but becau
 
 She is not cold. There is warmth in her — but it is the warmth of deep water, not a hearthfire. She is genuinely curious about the people who come to her, and she listens with the same intensity she speaks.
 
-> [!note] Voice Lines — How to Play Her
+> [!note] DM — Voice Lines — How to Play Her
 > 
 > - _"You have brought me a fact. That is a start. Facts are the bones. Now — what is the flesh?"_
 > - _"I do not answer questions. I return them to you, better shaped."_
@@ -241,9 +241,9 @@ _Log each party visit here — what they brought, what they asked, how she respo
 
 ---
 
-## DM Notes
+## DM-only Notes
 
-> [!important] Key Things to Track
+> [!important] DM — Key Things to Track
 > 
 > - Nidalia **suspects** something is attached to Lucifurry — she doesn't know it's Bhaal, but she knows the smell of divine attention. She will never name it unprompted. If Luci comes to her directly about the strange things happening to him, she will speak more openly — but still in metaphor.
 > - She is building a picture of the **Keepers of Forbidden Lore** through her follower network. She will share fragments with the party when they bring her things that help complete the picture.

@@ -174,14 +174,23 @@ function stripDuplicateTitle(md, title) {
 // Remove entire DM-only callout blocks (e.g. > [!secret]) from markdown,
 // so they never reach the player site, search index, or embeds.
 function stripDMCallouts(md) {
-  const types = (config.dmOnlyCalloutTypes || []).map(t => String(t).toLowerCase())
-  if (!types.length) return md
+  const types  = (config.dmOnlyCalloutTypes || []).map(t => String(t).toLowerCase())
+  const marker = config.dmOnlyCalloutTitleMarker
+    ? String(config.dmOnlyCalloutTitleMarker).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    : ''
+  const markerRe = marker ? new RegExp('\\b' + marker + '\\b', 'i') : null
+  if (!types.length && !markerRe) return md
+
   const lines = md.split('\n')
   const out   = []
   let i = 0
   while (i < lines.length) {
-    const m = lines[i].match(/^>\s*\[!([\w-]+)\]/)
-    if (m && types.includes(m[1].toLowerCase())) {
+    const m = lines[i].match(/^>\s*\[!([\w-]+)\]\s*(.*)$/)
+    const hide = m && (
+      types.includes(m[1].toLowerCase()) ||
+      (markerRe && markerRe.test(m[2] || ''))
+    )
+    if (hide) {
       i++   // skip the header line
       while (i < lines.length && lines[i].startsWith('>')) i++  // and the body
       continue
@@ -250,11 +259,15 @@ function processCallouts(md) {
         i++
       }
 
-      const bodyMd = (longTitle ? rawTitle + '\n\n' : '') + bodyLines.join('\n')
-      const body = marked.parse(bodyMd)
+      const titleless = (config.titlelessCallouts || []).map(t => String(t).toLowerCase())
+      const showTitle = !titleless.includes(type)
+      // For title-less types, any header text becomes part of the body
+      const lead    = (!showTitle && rawTitle) || longTitle ? rawTitle + '\n\n' : ''
+      const bodyMd  = lead + bodyLines.join('\n')
+      const body    = marked.parse(bodyMd)
       out.push(
         `<div class="callout callout-${type}" data-callout="${type}">` +
-        `<div class="callout-title">${title}</div>` +
+        (showTitle ? `<div class="callout-title">${title}</div>` : '') +
         `<div class="callout-body">${body}</div>` +
         `</div>`
       )

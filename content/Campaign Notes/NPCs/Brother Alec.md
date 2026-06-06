@@ -102,7 +102,7 @@ He has not told anyone. He has no one to tell. He has prayed to Oghma about it a
 
 He will share his journal without hesitation if the party brings him something real. He has been waiting, without knowing he was waiting, for someone to confirm that he wasn't imagining it.
 
-> [!warning] The Moment He Learns About Kei Brother Alec worked alongside Kei Tigersteel for years. He liked him. He trusted him. When the party reveals Kei as a Keeper agent — particularly if Kei is the one who first told Alec his "unease" was just old age — the scene deserves real space at the table. He will go very quiet. Then he will open his journal and start looking for the things he dismissed.
+> [!warning] DM — The Moment He Learns About Kei Brother Alec worked alongside Kei Tigersteel for years. He liked him. He trusted him. When the party reveals Kei as a Keeper agent — particularly if Kei is the one who first told Alec his "unease" was just old age — the scene deserves real space at the table. He will go very quiet. Then he will open his journal and start looking for the things he dismissed.
 
 ---
 

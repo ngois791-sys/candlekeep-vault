@@ -78,7 +78,7 @@ The governor of Candlekeep and its most senior member. Janussi is — or was —
 
 **When freed:** Janussi remembers nothing of what he did while compromised. He must be told. He will then command Miirym to fight alongside the party in the finale. Give that conversation its full weight.
 
-> [!warning] Do not reveal Janussi's compromise until Act Two at the earliest. Pell's discovery of the forged signatures is the first crack. Let it build slowly.
+> [!warning] DM — Do not reveal Janussi's compromise until Act Two at the earliest. Pell's discovery of the forged signatures is the first crack. Let it build slowly.
 
 ---
 

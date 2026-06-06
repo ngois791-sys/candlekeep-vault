@@ -75,6 +75,18 @@ module.exports = {
   //   > Only the DM should ever read this.
   dmOnlyCalloutTypes: ["secret", "dm"],
 
+  // ── DM-Only Callout Title Marker ──────────────────────────
+  // ANY callout whose title contains this word (case-insensitive,
+  // whole word) is also hidden from players — whatever its type.
+  // e.g. "> [!warning] DM Note ..." is hidden because the title has "DM".
+  // Set to null to turn this off.
+  dmOnlyCalloutTitleMarker: "DM",
+
+  // ── Title-less Callouts ───────────────────────────────────
+  // Callouts of these types render WITHOUT a title label on the site
+  // (just the body). Good for read-aloud boxes meant for players.
+  titlelessCallouts: ["readaloud"],
+
   // ── Navigation Structure ──────────────────────────────────
   // Explore section — maps nav labels to vault folders
   // To add a section: { label: "My Section", folder: "My Folder" }

@@ -114,7 +114,7 @@ Kei Tigersteel has been documenting Miirym's patrol patterns and known limitatio
 - Her response time when she senses a living presence in the lower catacombs
 - A note that she appears to be aware of being watched and has been since approximately three years ago
 
-> [!note] The Irony Kei has been documenting Miirym's limitations to help the Keepers bypass her. If he is redeemed, those same notes help the party work with her in the finale. The same document, used for opposite purposes.
+> [!note] DM — The Irony Kei has been documenting Miirym's limitations to help the Keepers bypass her. If he is redeemed, those same notes help the party work with her in the finale. The same document, used for opposite purposes.
 
 ---
 
