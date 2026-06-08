@@ -46,6 +46,25 @@ The shop’s expanded inventory includes leather and metal armor designed for mo
 - **Normal armor, helmets, cloaks, and other wearables.**
 
 
+| Item | Type | Rarity | Attune | Price |
+| --- | --- | --- | --- | --- |
+| **— Armor —** |  |  |  |  |
+| Silkwoven Leather | Light Armor | Uncommon | Yes | 180 gp |
+| **— Helms & Headwear —** |  |  |  |  |
+| Helm of Quiet Clarity | Helm | Common | — | 65 gp |
+| Void-Silk Cowl | Cowl | Common | — | 110 gp |
+| **— Cloaks & Mantles —** |  |  |  |  |
+| Cloak of the Gentle Wind | Cloak | Common | — | 55 gp |
+| Ink-Shadow Cloak | Cloak | Common | — | 75 gp |
+| Cloak of Minor Deflection | Cloak | Uncommon | Yes | 160 gp |
+| Stormthread Mantle | Mantle | Uncommon | Yes | 150 gp |
+| **— Gloves, Sashes & Accessories —** |  |  |  |  |
+| Gloves of the Light Touch | Gloves | Common | — | 100 gp |
+| Scholar's Sash | Sash | Common | — | 130 gp |
+| Warden's Surcoat | Surcoat | Common | — | 120 gp |
+
+## DM-only — Item Details
+
 ### **Helm of Quiet Clarity** (65 gp)
 - This lightweight half-helm is lined with Feldmar’s silken padding, which muffles sound and fits the head like a gentle embrace.
 - **Properties:**

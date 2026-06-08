@@ -32,6 +32,33 @@ The whole place carries a mix of scents—warm metal, hay, leather, and animals.
 - **Normal Weapons and Shields**
 - **Silvering weapons cost 50-100 gp depending on the weapon**
 
+| Item | Type | Rarity | Attune | Price |
+| --- | --- | --- | --- | --- |
+| **— Daggers —** |  |  |  |  |
+| Dagger of the Quickstep | Dagger | Common | — | 75 gp |
+| Dagger of Returning | Dagger | Common | — | 100 gp |
+| **— Swords & Blades —** |  |  |  |  |
+| Rapier of Light Balance | Rapier | Common | — | 75 gp |
+| Shortsword of the Fading Step | Shortsword | Uncommon | Yes | 150 gp |
+| Greatsword of Cleaving Edge | Greatsword | Common | — | 90 gp |
+| Greatsword of the Steady Grip | Greatsword | Common | — | 50 gp |
+| **— Staves & Wands —** |  |  |  |  |
+| Wand of Minor Push | Wand | Common | — | 80 gp |
+| Staff of Focused Casting | Staff | Common | — | 100 gp |
+| Staff of Lightfooting | Staff | Common | — | 50 gp |
+| Staff of Stable Casting | Staff | Common | — | 60 gp |
+| Staff of Smoldering Thought | Staff | Uncommon | Yes | 200 gp |
+| **— Shields —** |  |  |  |  |
+| Shield of Steady Guard | Shield | Common | — | 100 gp |
+| Shield of the Returning Bash | Shield | Common | — | 130 gp |
+| **— Crossbows —** |  |  |  |  |
+| Crossbow of Quiet String | Crossbow | Common | — | 70 gp |
+| Crossbow of the Guiding Bolt | Crossbow | Common | — | 100 gp |
+| **— Heavy Weapons —** |  |  |  |  |
+| Morningstar of the Iron Vow | Morningstar | Uncommon | Yes | 150 gp |
+
+## DM-only — Item Details
+
 ### Dagger of the Quickstep
 - **Buff:** When you hit a creature, you may immediately move **5 feet without provoking opportunity attacks** (no action required).  
 - **Price:** **75 gp** (Common)

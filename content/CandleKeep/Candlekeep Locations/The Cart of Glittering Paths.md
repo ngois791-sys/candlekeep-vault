@@ -52,6 +52,24 @@ Despite his playful demeanor, Tibbin is deeply sentimental. Every piece he sells
 
 ## Items for Sale
 
+| Item | Type | Rarity | Attune | Price |
+| --- | --- | --- | --- | --- |
+| **— Rings —** |  |  |  |  |
+| Ring of Moonlit Footfalls | Ring | Common | — | 65 gp |
+| Dawnmote Ring | Ring | Uncommon | — | 210 gp |
+| Ring of the Pleased Pigment | Ring | Common | — | 100 gp |
+| **— Pendants & Lockets —** |  |  |  |  |
+| Mimic's Locket | Locket | Common | — | 75 gp |
+| Pocketful of Stars Brooch | Brooch | Common | — | 90 gp |
+| **— Bracelets & Chokers —** |  |  |  |  |
+| Whisper-Knot Choker | Choker | Common | Yes | 50 gp |
+| Threaded Promise Bracelet | Bracelet | Uncommon | Yes | 240 gp |
+| **— Ear Cuffs & Curiosities —** |  |  |  |  |
+| Emberbud Ear Cuff | Ear Cuff | Common | Yes | 70 gp |
+| Compass of Curious Wandering | Wondrous Item | Common | — | 60 gp |
+
+## DM-only — Item Details
+
 ### Ring of Moonlit Footfalls (Common, Attunement Not Required)
 
 - **Appearance:** A silver toe-ring sized for any wearer (it resizes magically). 
@@ -134,7 +152,7 @@ Despite his playful demeanor, Tibbin is deeply sentimental. Every piece he sells
 | **Notes** |  |
 
 
-## Secret Rare Items
+## DM-only — Secret Rare Items
 
 ### The Heartstring Circlet
 **Rarity:** Rare — **Attunement Required**
