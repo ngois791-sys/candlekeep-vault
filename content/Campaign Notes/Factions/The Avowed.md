@@ -85,7 +85,7 @@ The governor of Candlekeep and its most senior member. Janussi is a devoted, dee
 
 _Dragonborn, Green Dragon Ancestry | Master Sage_
 
-Responsible for expanding Candlekeep's literary resources — acquisitions, donations, and identifying gaps in the collection. Flamboyant and theatrical. Enormously enthusiastic about knowledge. Grants Inner Ward access during the Kandlekeep Dekonstruktion emergency and gives the party the arcane lock password ("jeopardy").
+Responsible for expanding Candlekeep's literary resources — acquisitions, donations, and identifying gaps in the collection. Flamboyant and theatrical. Enormously enthusiastic about knowledge. 
 
 > [!info]- DM 
 > **Status:** Unaware of the conspiracy. Clean.
@@ -125,7 +125,8 @@ _Human Master Sage and Poet | Expertise: Music, Poetry, Literature_
 
 _Lightfoot Halfling Master Sage | Expertise: History, Folklore, Cultures of Toril_
 
-**Status:** Unaware of the conspiracy. Clean.
+> [!info]- DM  
+> **Status:** Unaware of the conspiracy. Clean.
 
 ---
 
@@ -133,7 +134,8 @@ _Lightfoot Halfling Master Sage | Expertise: History, Folklore, Cultures of Tori
 
 _Human Master Sage | Expertise: The Natural World and Celestial Navigation_
 
-**Status:** Unaware of the conspiracy. Clean.
+> [!info]- DM  
+> **Status:** Unaware of the conspiracy. Clean.
 
 ---
 
@@ -141,7 +143,8 @@ _Human Master Sage | Expertise: The Natural World and Celestial Navigation_
 
 _Tiefling Archmage | Expertise: The Great Wheel of the Planes_
 
-**Status:** Unaware of the conspiracy. Clean. Her expertise in planar matters may become relevant if the party investigates extradimensional aspects of the Keeper plan.
+> [!info]- DM  
+> **Status:** Unaware of the conspiracy. Clean. Her expertise in planar matters may become relevant if the party investigates extradimensional aspects of the Keeper plan.
 
 ---
 
@@ -149,15 +152,17 @@ _Tiefling Archmage | Expertise: The Great Wheel of the Planes_
 
 _Human Archmage | Expertise: Magic Items, Curses, and the Weave_
 
-**Status:** Unaware of the conspiracy. Clean. A potential resource if the party is investigating Keeper-connected magical items or the Scrivener's Mark.
+> [!info]- DM  
+> **Status:** Unaware of the conspiracy. Clean. A potential resource if the party is investigating Keeper-connected magical items or the Scrivener's Mark.
 
 ---
 
 ### V'ziir-Ag — Great Reader
 
-_Githzerai Master Sage | Expertise: All Things Unnatural — Aberrations, Undead, the Far Realm_
+_Githyanki Master Sage | Expertise: All Things Unnatural — Aberrations, Undead, the Far Realm_
 
-**Status:** Unaware of the conspiracy. Clean. Potentially the most useful Great Reader if the party brings evidence of Xanthoria's lich nature or the plague's origins.
+> [!info]- DM  
+> **Status:** Unaware of the conspiracy. Clean. Potentially the most useful Great Reader if the party brings evidence of Xanthoria's lich nature or the plague's origins.
 
 ---
 
@@ -167,7 +172,8 @@ _Middle-Aged Shield Dwarf Priest of Milil_
 
 Leads the Endless Chant — the continuous recitation of Alaundo's prophecies that has been maintained without interruption for centuries. Runs the rotation of chanters and takes the responsibility with deep personal reverence.
 
-**Status:** Unaware. Clean.
+> [!info]- DM  
+> **Status:** Unaware. Clean.
 
 ---
 
@@ -177,7 +183,8 @@ _Human Archmage | Maintains Security at the Front Gates_
 
 If trouble occurs inside Candlekeep, Kalan and up to four mages arrive immediately. If they can't handle it, four additional archmages join. He is the first line of Candlekeep's active defense.
 
-**Status:** Unaware. Clean.
+> [!info]- DM  
+>**Status:** Unaware. Clean.
 
 ---
 
@@ -187,7 +194,8 @@ _Human Priest of Shou Descent | Temple of Oghma_
 
 Not officially Avowed, but has the privilege of entering the library unaccompanied — a trust built over decades. He is the only non-Avowed with this access.
 
-**Status:** Keeper agent. See [[Kei Tigersteel]].
+> [!info]- DM  
+> **Status:** Keeper agent. See [[Kei Tigersteel]].
 
 ---
 
@@ -198,12 +206,10 @@ Not officially Avowed, but has the privilege of entering the library unaccompani
 _Spectral Silver Dragon | Guardian of Candlekeep_
 
 What remains of Miirym manifests as immense spectral jaws whose essence roils with the promise of breath weapons and spells. She is bound to protect Candlekeep as penance for breaking in over 1,500 years ago — during which she devoured scholars and destroyed irreplaceable books. The wizard who bound her died before her sentence was served; no one has been able to break the enchantment since. She died, crumbled to dust, but the enchantment remains on her spirit.
-
-She is more interested in conversation than combat. She is an engaging conversationalist if the party takes the time. She can be summoned by the Keeper of Tomes — currently Janussi — to defend against invaders. In her defender role she can move anywhere within Candlekeep, passing through walls and solid barriers. She cannot enter extradimensional spaces.
-
-**The party's relationship with Miirym matters.** If they treat her with respect and take time to talk with her, she is a potential ally. If Janussi is freed and commands her in the finale, she fights alongside the party — but having an existing relationship with her makes the finale more resonant.
-
-**She has no treasure hoard.** She protects the books and scrolls in her subterranean domain.
+> [!npc] - DM Information  
+> She is more interested in conversation than combat. She is an engaging conversationalist if the party takes the time. She can be summoned by the Keeper of Tomes — currently Janussi — to defend against invaders. In her defender role she can move anywhere within Candlekeep, passing through walls and solid barriers. She cannot enter extradimensional spaces.
+> **The party's relationship with Miirym matters.** If they treat her with respect and take time to talk with her, she is a potential ally. If Janussi is freed and commands her in the finale, she fights alongside the party — but having an existing relationship with her makes the finale more resonant.
+> **She has no treasure hoard.** She protects the books and scrolls in her subterranean domain.
 
 ---
 
@@ -213,11 +219,12 @@ _Ogre wearing a Headband of Intellect | Permanent Resident_
 
 A beloved fixture of Candlekeep. Years ago he was brutish and cruel. He killed a halfling adventurer for the headband. When he attuned to it and his reasoning improved, he felt compelled to reckon with what he'd done. He took the name Little One to honour the halfling whose life he cut short and came to Candlekeep hoping to learn as much as he could. He is usually found in a corner of the Hearth reading quietly.
 
-**Status:** Unaware. Clean. A good source of warmth and unexpected wisdom if the party takes time to know him.
+> [!info]- DM  
+> **Status:** Unaware. Clean. A good source of warmth and unexpected wisdom if the party takes time to know him.
 
 ---
 
-## Avowed Adjutants
+## Avowed Adjutants (DM)
 
 The party may be assigned an adjutant as a guide and research assistant. Roll d8 or choose:
 
@@ -234,7 +241,7 @@ The party may be assigned an adjutant as a guide and research assistant. Roll d8
 
 ---
 
-## The Avowed and the Conspiracy
+## The Avowed and the Conspiracy (DM)
 
 The Avowed are not foolish or negligent — they have simply been systematically deceived by people they trusted. Janussi's compromise means the most powerful safeguard they have (his ability to command Miirym) has been turned against them quietly for years. Orris Vane's reclassification work has been invisible precisely because he knows the system intimately. Ramilir has operated below notice because he's always been trusted and likeable.
 
@@ -242,7 +249,7 @@ When the truth comes out, the Avowed will be horrified — and they will want to
 
 ---
 
-## Connected Notes
+## Connected Notes (DM)
 
 - [[Campaign Master Arc]] — where the Avowed fit into the overarching plot
 - [[Janussi]] — the compromised Keeper of Tomes (NPC file to build)
