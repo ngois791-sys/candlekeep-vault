@@ -224,7 +224,7 @@ A beloved fixture of Candlekeep. Years ago he was brutish and cruel. He killed a
 
 ---
 
-## Avowed Adjutants (DM)
+## Avowed Adjutants (DM - Only)
 
 The party may be assigned an adjutant as a guide and research assistant. Roll d8 or choose:
 
@@ -241,7 +241,7 @@ The party may be assigned an adjutant as a guide and research assistant. Roll d8
 
 ---
 
-## The Avowed and the Conspiracy (DM)
+## The Avowed and the Conspiracy (DM - Only)
 
 The Avowed are not foolish or negligent — they have simply been systematically deceived by people they trusted. Janussi's compromise means the most powerful safeguard they have (his ability to command Miirym) has been turned against them quietly for years. Orris Vane's reclassification work has been invisible precisely because he knows the system intimately. Ramilir has operated below notice because he's always been trusted and likeable.
 
@@ -249,7 +249,7 @@ When the truth comes out, the Avowed will be horrified — and they will want to
 
 ---
 
-## Connected Notes (DM)
+## Connected Notes (DM - Only)
 
 - [[Campaign Master Arc]] — where the Avowed fit into the overarching plot
 - [[Janussi]] — the compromised Keeper of Tomes (NPC file to build)
