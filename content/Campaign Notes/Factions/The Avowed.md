@@ -1,19 +1,20 @@
 ---
 tags:
-- Factions
-- Avowed
-- Friendy
+  - Factions
+  - Avowed
+  - Friendy
 aliases:
-- Avowed
-- Candlekeep workers
-- Candlekeep Monks
+  - Avowed
+  - Candlekeep workers
+  - Candlekeep Monks
 ---
 
 # Faction — The Avowed
 
 _Guardians of Candlekeep_
 
-> [!note] Public Faction The Avowed are not secret. This file covers their hierarchy, key members, defenses, and their current status regarding the Keeper conspiracy. The party interacts with the Avowed constantly — this is the reference for who's who.
+> [!note] For DM 
+> Public Faction The Avowed are not secret. This file covers their hierarchy, key members, defenses, and their current status regarding the Keeper conspiracy. The party interacts with the Avowed constantly — this is the reference for who's who.
 
 ---
 
@@ -72,13 +73,11 @@ Keeper of Tomes (1)
 
 _Human Archmage | Devoted follower of Deneir | Highest-ranking Avowed_
 
-The governor of Candlekeep and its most senior member. Janussi is — or was — a devoted, deeply principled man who has spent his life in service to knowledge. He is respected universally within the Avowed. He is the only one who can command Miirym.
-
-**Current Status:** Compromised. Xanthoria infected him with the Saprophytic Plague during an expedition to the Lykortha Expanse. The mycelial network has been slowly influencing his thoughts and decisions for years. He believes his thoughts are his own. He is not a willing traitor — he is a victim.
-
-**When freed:** Janussi remembers nothing of what he did while compromised. He must be told. He will then command Miirym to fight alongside the party in the finale. Give that conversation its full weight.
+The governor of Candlekeep and its most senior member. Janussi is a devoted, deeply principled man who has spent his life in service to knowledge. He is respected universally within the Avowed. He is the only one who can command Miirym.
 
 > [!warning] DM — Do not reveal Janussi's compromise until Act Two at the earliest. Pell's discovery of the forged signatures is the first crack. Let it build slowly.
+> **Current Status:** Compromised. Xanthoria infected him with the Saprophytic Plague during an expedition to the Lykortha Expanse. The mycelial network has been slowly influencing his thoughts and decisions for years. He believes his thoughts are his own. He is not a willing traitor — he is a victim.
+> **When freed:** Janussi remembers nothing of what he did while compromised. He must be told. He will then command Miirym to fight alongside the party in the finale. Give that conversation its full weight.
 
 ---
 
@@ -88,7 +87,8 @@ _Dragonborn, Green Dragon Ancestry | Master Sage_
 
 Responsible for expanding Candlekeep's literary resources — acquisitions, donations, and identifying gaps in the collection. Flamboyant and theatrical. Enormously enthusiastic about knowledge. Grants Inner Ward access during the Kandlekeep Dekonstruktion emergency and gives the party the arcane lock password ("jeopardy").
 
-**Status:** Unaware of the conspiracy. Clean.
+> [!info]- DM 
+> **Status:** Unaware of the conspiracy. Clean.
 
 ---
 
@@ -98,7 +98,8 @@ _Human Master Sage | Worshiper of Oghma | Expertise: Divinity_
 
 The Great Reader who briefs the party in The Canopic Being, sending them to Tashalar to find Mayastan Sadaar. Calm, measured, and precise. Takes the party seriously as investigators.
 
-**Status:** Unaware of the conspiracy. Clean.
+> [!info]- DM 
+> **Status:** Unaware of the conspiracy. Clean.
 
 ---
 
@@ -106,7 +107,8 @@ The Great Reader who briefs the party in The Canopic Being, sending them to Tash
 
 _Dragonborn, Bronze Dragon Ancestry | Master Sage | Expertise: Politics, Military Strategy, Significant Battles_
 
-**Status:** Unaware of the conspiracy. Clean.
+> [!info]- DM  
+> **Status:** Unaware of the conspiracy. Clean.
 
 ---
 
@@ -114,7 +116,8 @@ _Dragonborn, Bronze Dragon Ancestry | Master Sage | Expertise: Politics, Militar
 
 _Human Master Sage and Poet | Expertise: Music, Poetry, Literature_
 
-**Status:** Unaware of the conspiracy. Clean.
+> [!info] DM 
+> **Status:** Unaware of the conspiracy. Clean.
 
 ---
 
