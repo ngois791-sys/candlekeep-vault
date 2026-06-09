@@ -114,7 +114,15 @@ function stripDMSections(md) {
   const marker = config.dmOnlySectionMarker
   if (!marker) return md
 
-  const markerLc = marker.toLowerCase()
+  // Match the marker flexibly so spacing/hyphen variations all count:
+  // "DM-only", "DM - Only", "DM Only", "dm_only" → all trigger hiding.
+  const markerRe = new RegExp(
+    marker.trim()
+      .split(/[\s_-]+/)
+      .map(p => p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+      .join('[\\s_-]*'),
+    'i'
+  )
   const lines    = md.split('\n')
   const out      = []
   let inFence    = false   // inside a ``` or ~~~ code block
@@ -142,7 +150,7 @@ function stripDMSections(md) {
       }
 
       // Does this heading start a DM-only section?
-      if (text.toLowerCase().includes(markerLc)) {
+      if (markerRe.test(text)) {
         hideLevel = level
         continue   // drop the marked heading itself
       }

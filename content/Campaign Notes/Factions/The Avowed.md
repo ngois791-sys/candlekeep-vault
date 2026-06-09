@@ -24,7 +24,8 @@ The Avowed are the scholarly monastic order that maintains Candlekeep and its va
 
 Their mission: preserve and protect all written knowledge. Share it with those who seek it in good faith. Guard it from those who would misuse it.
 
-They are good people doing an important job — and they have no idea that their Keeper of Tomes has been compromised, that four of their trusted colleagues are Keeper agents, and that an ancient evil has been slowly positioning itself to corrupt everything they've built.
+> [!dm] DM — Behind the Scenes
+> They are good people doing an important job — and they have no idea that their Keeper of Tomes has been compromised, that four of their trusted colleagues are Keeper agents, and that an ancient evil has been slowly positioning itself to corrupt everything they've built.
 
 ---
 

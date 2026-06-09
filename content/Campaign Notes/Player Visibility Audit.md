@@ -31,8 +31,7 @@ tags:
 
 ### 🔴 Leaks to fix — DM content is currently visible to players
 
-- [ ] **`Factions/The Avowed.md`** — biggest one. The section **`## The Avowed and the Conspiracy`**, and **every member's line `Status: Unaware of the conspiracy. Clean.`**, reveal that a hidden conspiracy exists and who's compromised. Janussi's entry is especially sensitive.
-      → *Fix:* rename the section to `## DM-only — The Conspiracy`; move/hide the per-member "Status" lines (e.g. into a `> [!dm]` box under each, or a single DM-only section).
+- [x] **`Factions/The Avowed.md`** — ✅ DONE: the 3 bottom `(DM - Only)` sections now hide (build made forgiving of marker spacing); per-member `[!info]- DM` status callouts + Janussi warning hide; and the Overview conspiracy paragraph is now wrapped in a `[!dm]` callout.
 - [ ] **`NPCs/Brother Alec.md`** — sections **`## His Secret — Something Is Wrong`** and **`## What He Knows About the Conspiracy`** are pure DM info.
       → *Fix:* rename both to start with `## DM-only — …`.
 - [ ] **`NPCs/Miirym.md`** — **`## Her Role in the Campaign`** (incl. *Before the Finale / The Finale* = finale spoilers) and **`## Kei Tigersteel's Observation Notes`** (villain intel).
