@@ -52,6 +52,29 @@ The Hearth’s patrons are a mix of fresh-faced adjutants, stodgy scholars, and 
 
 - **Simple food and drink**
 
+| Item | Type | Effect | Price |
+| --- | --- | --- | --- |
+| **— Healing —** |  |  |  |
+| Brewhealer's Red | Healing Potion | Restores 2d4 + 2 HP | 50 gp |
+| **— Ales & Brews —** |  |  |  |
+| Porter of Quickstep | Ale | +10 ft movement speed for 1 minute | 35 gp |
+| Oaken Brew of Barkskin | Ale | +1 AC for 1 minute | 40 gp |
+| Hops of the Hawkeyed | Ale | Advantage on one Perception check | 25 gp |
+| Stout of the Steady Hand | Stout | Advantage on Sleight of Hand / Thieves' Tools | 30 gp |
+| Boozeinder's Bravado | Spirit | Advantage on Intimidation or Persuasion | 30 gp |
+| Mug o' Misty Mirth | Ale | Puff of obscuring mist (5 ft, 1 round) | 20 gp |
+| Ale of Anchored Steps | Ale | Resist being shoved / knocked prone (10 min) | 35 gp |
+| Sour of the Slippery Step | Sour Ale | Advantage on one Acrobatics check | 25 gp |
+| Aged Reserve of Iron Nerve | Spirit | Advantage on one Wisdom save (1 hour) | 40 gp |
+| Winter Wheat Warmth | Wheat Ale | Resistance to cold damage for 1 minute | 35 gp |
+| **— Non-Alcoholic —** |  |  |  |
+| Sunrise Nectar | Juice | Remove one level of exhaustion | 55 gp |
+| Apple of the Clear Mind | Juice | Advantage on Arcana / History / Investigation | 25 gp |
+| Honeydew Draft | Juice | Advantage on Deception or Performance | 25 gp |
+| Bramble Tart | Juice | +2 initiative for 10 minutes | 30 gp |
+
+## DM-only — Drink & Potion Details
+
 ### Brewhealer's Red (Standard Healing Potion) (50 gp)
 - **Effect:** As a normal Potion of Healing --- restores 2d4 + 2 HP
 - **Appearance:** A ruby-red liquid that fizzes softly like mulled wine left near a fire.  
