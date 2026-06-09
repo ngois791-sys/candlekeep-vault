@@ -16,7 +16,7 @@ Beside the workshop lies Feldmar’s cherished **silk atrium**, where rows of mu
 
 The shop’s expanded inventory includes leather and metal armor designed for mobility, field-ready cloaks, padded half-helms, and ceremonial headgear, all tailored with Candlekeep’s understated aesthetic. Whether someone needs a simple mend, a fresh robe for study, or specialized gear for a dangerous expedition, Erudite Outfitters remains a trusted and well-loved cornerstone of life in Candlekeep.
 
-> [!tip]- Feldmar's Voice Guide
+> [!dm]- Feldmar's Voice Guide
 > **Tone and Mood**
 > 	- Soft-spoken, calm, and gentle
 > 	- Rarely sounds rushed or irritated

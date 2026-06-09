@@ -42,7 +42,8 @@ The Hearth’s patrons are a mix of fresh-faced adjutants, stodgy scholars, and 
 > **Race:** Avowed Elvish Woman
 > 
 > **Appearance:** Serelyth is a tall, slender moon elf with pale silver-blue skin and hair like smoothed winter frost pulled into a loose braid draped over one shoulder. Her eyes are a muted amethyst, warm and gentle rather than piercing. She dresses simply but gracefully—soft beige linens, embroidered cuffs, and a moss-green apron tied neatly around her waist. She moves with quiet, fluid certainty, as though every step has already been considered before she takes it.
-> 
+
+> [!dm]+ Serelyth — Personality & Voice (DM)
 > **Personality & Mannerisms:** Serelyth is calm to the point of serenity, never raising her voice, never hurried, and never rattled even in a crowded room. She listens more than she speaks, and when she does, her words are soft, measured, and intentional. She seems to always notice when a patron needs something—refilled mugs, a comforting word, or simply a quieter corner.
 > 
 > **Voice Guide:** Serelyth’s voice is low, velvety, and slow-paced, carrying a faint melodic cadence common among moon elves. Imagine someone who speaks as if they are gently smoothing wrinkles from cloth—soft, even, unforced. She pauses briefly between sentences, letting her words settle like falling embers.

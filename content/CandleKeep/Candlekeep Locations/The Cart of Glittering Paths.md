@@ -20,35 +20,31 @@ A tiny brass sign hangs on the front, its letters rearranging themselves every f
 > A small cherrywood cart rolls into the Court of Air, its brass wheels clicking softly on the stone. Hanging from the edges is a collection of tiny glass charms that chime together with each shift of the breeze. The cart unfolds smoothly as the halfling pushes it into place. Shelves slide outward, revealing rows of rings, pendants, bracelets, and glowing magical trinkets. A floating glass orb drifts beside the cart, adjusting lights and nudging displays as if it is helping arrange the merchandise. The whole setup gives the impression of a miniature traveling jewelry shop shining with warm colors, soft lights, and a faint scent of cedar and gemstone dust.
 
 ## Description of Tibbin Underbough
-**Tibbin Underbough** is a lightfoot halfling with a permanently wind-ruffled mane of sandy-brown curls and cheeks smudged constantly with metal dust from late-night tinkering. His bright hazel eyes dart excitedly between customers, glittering with both genuine curiosity and the thrill of a good bargain. Always smiling—sometimes too much—Tibbin has the energy of a hummingbird and the gentle manners of someone who was raised in a place where hospitality was sacred law. He tends to talk in fast, charming bursts, slipping into little rhymes when nervous or excited.
 
-He’s dressed in a fitted vest of soft plum-colored suede, etched with tiny glyphs for luck (some real, some purely decorative). Rings line nearly every finger, each one mismatched in design but meaningful to him. His left ear holds a tiny mechanical earring shaped like a dragonfly; it flutters its wings whenever he lies, much to his annoyance. Tibbin came to Candlekeep after leaving a failing artificer-jeweler’s guild in Baldur’s Gate—his unique fusion of artistry and magical whimsy wasn’t “profitable” enough for his old masters. He now wanders with pride, determined to prove that joyful creations have just as much place in the world as weapons and wards.
+> [!note]+ Tibbin Underbough
+> **Race:** Lightfoot Halfling
+>
+> **Appearance:** Tibbin is a lightfoot halfling with a permanently wind-ruffled mane of sandy-brown curls and cheeks smudged constantly with metal dust from late-night tinkering. His bright hazel eyes dart excitedly between customers, glittering with both genuine curiosity and the thrill of a good bargain. He's dressed in a fitted vest of soft plum-colored suede, etched with tiny glyphs for luck (some real, some purely decorative). Rings line nearly every finger, each one mismatched in design but meaningful to him. His left ear holds a tiny mechanical earring shaped like a dragonfly; it flutters its wings whenever he lies, much to his annoyance.
 
-Despite his playful demeanor, Tibbin is deeply sentimental. Every piece he sells represents something meaningful—either crafted for a specific emotion he once felt or inspired by someone he’s met. He also quietly takes notes on every customer, sketching their faces in a little leather journal for future “inspiration.” He dreams of one day founding a traveling guild of magical artisans whose purpose would be to “spark wonder wherever feet can wander.”
+> [!dm]+ Tibbin — Personality & Voice (DM)
+> **Personality:** Always smiling—sometimes too much—Tibbin has the energy of a hummingbird and the gentle manners of someone who was raised in a place where hospitality was sacred law. He tends to talk in fast, charming bursts, slipping into little rhymes when nervous or excited. Tibbin came to Candlekeep after leaving a failing artificer-jeweler's guild in Baldur's Gate—his unique fusion of artistry and magical whimsy wasn't "profitable" enough for his old masters. He now wanders with pride, determined to prove that joyful creations have just as much place in the world as weapons and wards. Despite his playful demeanor, Tibbin is deeply sentimental. Every piece he sells represents something meaningful—either crafted for a specific emotion he once felt or inspired by someone he's met. He also quietly takes notes on every customer, sketching their faces in a little leather journal for future "inspiration." He dreams of one day founding a traveling guild of magical artisans whose purpose would be to "spark wonder wherever feet can wander."
+>
+> - **Friendly Curiosity:** Tibbin enjoys meeting new people and always wants to know what brought them to Candlekeep. He asks gentle questions and listens closely.
+> - **Easily Excited:** Magic fascinates him. If someone shows interest in his work, he lights up and becomes animated.
+> - **Softhearted:** Tibbin cares deeply about others and often reads moods well. He offers comfort or humor when someone seems stressed.
+> - **Creative and Scatterbrained:** He jumps between topics, loses his tools, and sometimes forgets what he was about to say. His floating orb assistant helps keep him focused.
+> - **Quiet Melancholy (Subtle):** Players may notice small hints of wistfulness in quiet moments, though Tibbin never volunteers the reason.
+>
+> **Voice Guide:**
+> - **Tone:** Warm, light, and friendly. His voice carries a soft musical cadence, like someone who hums often and enjoys pleasant sounds.
+> - **Pace:** Fast when he gets excited. Slower and thoughtful when he speaks about something personal.
+> - **Volume:** Generally quiet to moderate. He is more enthusiastic than loud.
+> - **Mannerisms:** Speaks with his hands; laughs softly when nervous; makes little "oh" and "hmm" sounds when thinking; sometimes talks to his floating orb as if it were a pet.
+> - **Example Lines:** "Oh, yes, look at this one. It is one of my favorites. Careful though, it likes to sparkle when happy." — "You have a good eye. Not everyone notices the little details." — "I think this piece would suit you. It feels right somehow."
 
-**Tibbin’s Personality Traits (Player-Facing Tone)**:
-- **Friendly Curiosity:** Tibbin enjoys meeting new people and always wants to know what brought them to Candlekeep. He asks gentle questions and listens closely.
-- **Easily Excited:** Magic fascinates him. If someone shows interest in his work, he lights up and becomes animated.
-- **Softhearted:** Tibbin cares deeply about others and often reads moods well. He offers comfort or humor when someone seems stressed.
-- **Creative and Scatterbrained:** He jumps between topics, loses his tools, and sometimes forgets what he was about to say. His floating orb assistant helps keep him focused.
-- **Quiet Melancholy (Subtle):** Players may notice small hints of wistfulness in quiet moments, though Tibbin never volunteers the reason.
-
-**Voice Guide for Tibbin:**
-- **Tone:** Warm, light, and friendly. His voice carries a soft musical cadence, like someone who hums often and enjoys pleasant sounds.
-- **Pace:** Fast when he gets excited. Slower and thoughtful when he speaks about something personal.
-- **Volume:** Generally quiet to moderate. He is more enthusiastic than loud.
-- **Mannerisms**  
-	- Speaks with his hands  
-	- Laughs softly when nervous  
-	- Makes little “oh” and “hmm” sounds when thinking  
-	- Sometimes talks to his floating orb as if it were a pet
-- **Example Lines**  
-	- “Oh, yes, look at this one. It is one of my favorites. Careful though, it likes to sparkle when happy.”  
-	- “You have a good eye. Not everyone notices the little details.”  
-	- “I think this piece would suit you. It feels right somehow.”
-> [!readaloud]  
-> The halfling tending the cart smiles warmly as you approach. He is small and lively, with sandy curls that frame his bright hazel eyes. His plum-colored vest is stitched with tiny symbols, and his fingers are covered in several mismatched rings. He moves quickly and talks with expressive hands, always looking as if he is excited to share a new idea. There is an inviting energy about him, and a quiet sense of kindness beneath his cheerful manner.  
-> He greets you with a bright grin.  “Welcome. I hope you like small wonders. They have a way of finding the right people.”
+> [!readaloud]
+> The halfling tending the cart smiles warmly as you approach. He is small and lively, with sandy curls that frame his bright hazel eyes. His plum-colored vest is stitched with tiny symbols, and his fingers are covered in several mismatched rings. He moves quickly and talks with expressive hands, always looking as if he is excited to share a new idea. There is an inviting energy about him, and a quiet sense of kindness beneath his cheerful manner.
+> He greets you with a bright grin. "Welcome. I hope you like small wonders. They have a way of finding the right people."
 
 ## Items for Sale
 
