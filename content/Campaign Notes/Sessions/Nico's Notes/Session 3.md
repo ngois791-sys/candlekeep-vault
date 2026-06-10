@@ -33,7 +33,7 @@
 
 - 
 
-## Scenes
+## Scenes (DM-only)
 
 - Ritual
 	- https://youtu.be/5Y7oXb_Vmsc?si=z94GuGHU_4sHm9LV
@@ -44,7 +44,7 @@
 - 
 
 
-## Secrets and Clues
+## Secrets and Clues (DM-only)
 
 - 
 

@@ -26,7 +26,7 @@
 - Remember to make non-Alcoholic potions
 - Stopped just inside of Baldur's gate
 
-## Music Scenes
+## Music Scenes (DM-only)
 
 - City Sounds
 	- https://youtu.be/_52K0E_gNY0?si=UNYAtMx8wdVZ_FIi
@@ -37,7 +37,7 @@
 - Baldur's Gate at Night
 	- https://youtu.be/LTIbaqUFI_c?si=QuiqdJDVQjvPLCm1
 
-## Secrets and Clues
+## Secrets and Clues (DM-only)
 
 - Give them all boons.
 

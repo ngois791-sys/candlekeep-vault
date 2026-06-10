@@ -25,11 +25,11 @@
 - Enchanted a cat feeder
 - Got both Homuli, Kade wants to make one.
 
-## Scenes
+## Scenes (DM-only)
 
 - 
 
-## Secrets and Clues
+## Secrets and Clues (DM-only)
 
 - 
 

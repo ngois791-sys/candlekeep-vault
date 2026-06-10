@@ -32,7 +32,7 @@
 
 - 
 
-## Secrets and Clues Found
+## Secrets and Clues Found (DM-only)
 
 - 
 
@@ -52,6 +52,6 @@
 
 ---
 
-## Next Session Hooks
+## Next Session Hooks (DM-only)
 
 - 

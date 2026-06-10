@@ -223,7 +223,6 @@ a.wikilink:hover { color: var(--ink); }
 .index-card:hover { transform: translateY(-3px); border-color: var(--accent); text-decoration: none; }
 .ic-title { font-family: "Cinzel", serif; font-size: 1.05rem; color: var(--accent-2); line-height: 1.3; }
 .ic-desc { color: var(--ink-soft); font-size: 1rem; line-height: 1.5; }
-.folder-card .ic-title::before { content: "📁"; margin-right: .5rem; font-size: .9em; opacity: .85; }
 
 /* ── Downloads list ───────────────────────────────────────── */
 .downloads { list-style: none; padding: 0; margin: 1.5rem 0; display: flex; flex-direction: column; gap: .9rem; }

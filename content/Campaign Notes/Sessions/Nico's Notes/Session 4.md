@@ -93,7 +93,7 @@ The road there passed through **Wytchway**, an abandoned village. It did not sta
 >As soon as I described the final room, I mentioned the "rubble at the other end" and Birhan's eyes got big. Toothsome has been looking for rubble to find the figurine. 
 >Toothsome fits in well with the party.
 
-## Secrets and Clues
+## Secrets and Clues (DM-only)
 
 - Nothing of note other than Luci's Hooks.
 
@@ -117,7 +117,7 @@ The road there passed through **Wytchway**, an abandoned village. It did not sta
 - (Need to get prices on all these items for when they sell them back at candlekeep)
 ---
 
-## Next Session Hooks
+## Next Session Hooks (DM-only)
 - On level up, give Toothsome the horn as a gift.
 - Things to note 
 	- Toothsome taking the figurine is a huge thing. If he actually delivers the figurine to the Keepers then I have set up great way for the Keepers to get past the dragon. 

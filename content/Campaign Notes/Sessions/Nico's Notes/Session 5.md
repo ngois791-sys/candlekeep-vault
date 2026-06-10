@@ -60,7 +60,7 @@ On the other side, he found **four humans, speaking quietly among themselves.**
 
 - 
 
-## Secrets and Clues Found
+## Secrets and Clues Found (DM-only)
 
 - 
 
@@ -80,6 +80,6 @@ On the other side, he found **four humans, speaking quietly among themselves.**
 
 ---
 
-## Next Session Hooks
+## Next Session Hooks (DM-only)
 
 - 
