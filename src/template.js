@@ -55,6 +55,24 @@ function eyebrowHTML(breadcrumb, fallback) {
   return `<div class="eyebrow">${label}</div>`
 }
 
+// Previous / Next page navigation (within the same folder)
+function buildPageNavHTML(prev, next) {
+  if (!prev && !next) return ''
+  const prevHTML = prev
+    ? `<a class="pn-link pn-prev" href="${prev.href}">
+        <span class="pn-dir">‹ Previous</span>
+        <span class="pn-title">${prev.title}</span>
+      </a>`
+    : ''
+  const nextHTML = next
+    ? `<a class="pn-link pn-next" href="${next.href}">
+        <span class="pn-dir">Next ›</span>
+        <span class="pn-title">${next.title}</span>
+      </a>`
+    : ''
+  return `<nav class="page-nav" aria-label="Page navigation">${prevHTML}${nextHTML}</nav>`
+}
+
 // "← back to parent" link
 function backLinkHTML(breadcrumb) {
   const parent = parentOf(breadcrumb)
@@ -179,10 +197,11 @@ function sharedJS() {
 }
 
 // ── Full page ─────────────────────────────────────────────────
-function buildPage({ title, subtitle, tags, breadcrumb, toc, content, sessions, css, layout = 'entry', eyebrow = null }) {
+function buildPage({ title, subtitle, tags, breadcrumb, toc, content, sessions, css, layout = 'entry', eyebrow = null, prevPage = null, nextPage = null }) {
   const base    = config.site.baseUrl
   const navHTML = buildNavHTML()
   const head    = headerForLayout(layout, { title, subtitle, tags, breadcrumb, eyebrow })
+  const pageNav = layout === 'entry' ? buildPageNavHTML(prevPage, nextPage) : ''
   const back    = layout === 'entry' ? backLinkHTML(breadcrumb) : ''
   const wrapClass = layout === 'entry' ? 'wrap entry' : 'wrap'
 
@@ -223,6 +242,7 @@ function buildPage({ title, subtitle, tags, breadcrumb, toc, content, sessions, 
         ${content}
       </div>
       ${layout === 'home' ? buildHomeSectionsHTML() : ''}
+      ${pageNav}
       ${back}
     </div>
   </main>

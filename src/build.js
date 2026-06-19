@@ -38,6 +38,11 @@ const registry = new Map()
 // lowercased tag → { name (display), slug, pages: [{title, href}] }
 const tagIndex = new Map()
 
+// ── Folder Index (for Previous/Next page navigation) ──────────
+// parent folder (relative path) → ordered [{ name, title, href }]
+// Mirrors the order pages appear on that folder's index page.
+const folderPages = new Map()
+
 // Tags to keep out of the Tags page / pills (case-insensitive)
 function hiddenTagSet() {
   const set = new Set([String(config.dmOnlyTag).toLowerCase()])
@@ -357,6 +362,17 @@ async function scan() {
       }
       tagIndex.get(key).pages.push({ title, href: entry.href })
     }
+
+    // Group pages by their parent folder for Previous/Next navigation
+    const parentDir = path.dirname(path.relative(CONTENT, f))
+    if (!folderPages.has(parentDir)) folderPages.set(parentDir, [])
+    folderPages.get(parentDir).push({ name, title, href: entry.href })
+  }
+
+  // Sort each folder's pages by file name — matches the order the
+  // folder's index page lists them (files sorted by localeCompare).
+  for (const arr of folderPages.values()) {
+    arr.sort((a, b) => a.name.localeCompare(b.name))
   }
 
   console.log(`✅ ${registry.size} pages indexed · ${tagIndex.size} tags`)
@@ -466,10 +482,26 @@ async function renderFile(filePath, sessions, css, opts = {}) {
     .trim()
     .slice(0, 250)
 
+  // Previous / Next within the same folder (entry pages only)
+  let prevPage = null, nextPage = null
+  if (!opts.isHome) {
+    const parentDir = path.dirname(path.relative(CONTENT, filePath))
+    const siblings  = folderPages.get(parentDir) || []
+    if (siblings.length > 1) {
+      const here = toHref(urlPath)
+      const idx  = siblings.findIndex(p => p.href === here)
+      if (idx !== -1) {
+        prevPage = siblings[idx - 1] || null
+        nextPage = siblings[idx + 1] || null
+      }
+    }
+  }
+
   const page = buildPage({
     title, subtitle, tags, breadcrumb, toc,
     content: html, sessions, css,
-    layout: opts.isHome ? 'home' : 'entry'
+    layout: opts.isHome ? 'home' : 'entry',
+    prevPage, nextPage
   })
 
   return {
