@@ -8,7 +8,7 @@
 **Bloodsong** is a heavy battleaxe forged of blackened steel, its surface engraved with faintly glowing runes that pulse when the weapon draws blood. When swung, the axe emits a deep, resonant hum that rises in pitch the closer it comes to striking true. The sound is not loud, but carries a strange, musical tone — a weapon that sings for battle.
 
 ## Stats
-- **Weapon Type:** [[battleaxe-xphb|Battleaxe]] 
+- **Weapon Type:** [[Battleaxe|Battleaxe]] 
 - **Damage:** [[Mechanics/CLI/rules/item-properties.md#Versatile|Versatile]]
 	- One-handed: 1d8 slashing 
 	- Two-handed: 1d10 slashing   

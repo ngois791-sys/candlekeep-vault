@@ -257,4 +257,4 @@ _Private planning notes go here._
 
 ## Statblock
 
-![[sphinx-of-lore-xmm]]
+[[Sphinx of Lore]]

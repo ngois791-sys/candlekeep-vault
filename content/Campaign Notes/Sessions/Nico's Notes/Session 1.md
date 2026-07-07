@@ -44,9 +44,9 @@
 
 ## Monsters Encountered
 
-- [[animated-chained-library-cm|Animated Chained Library]]
-- [[swarm-of-animated-books-cm|Swarm of Animated Books]]
-- [[animated-flying-sword-xmm|Animated Flying Sword]]
+- [[Animated Chained Library|Animated Chained Library]]
+- [[Swarm of Animated Books|Swarm of Animated Books]]
+- [[Animated Flying Sword|Animated Flying Sword]]
 
 ## Loot Found
 

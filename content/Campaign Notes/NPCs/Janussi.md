@@ -36,7 +36,7 @@ He is not responsible for what he has done. He will not believe this when he is 
 
 ---
 
-## Stat Block — [[archmage-xmm|Archmage]]
+## Stat Block — [[Archmage|Archmage]]
 
 _Janussi uses the standard archmage stat block._
 

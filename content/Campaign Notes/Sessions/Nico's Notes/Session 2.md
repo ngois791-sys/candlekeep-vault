@@ -57,9 +57,9 @@
 
 ## Monsters Encountered
 
-- [[wererat-xmm|Wererat]]
-- [[giant-rat-xmm|Giant Rat]]
-- [[jackalwere-xmm|Jackalwere]]
+- [[Wererat|Wererat]]
+- [[Giant Rat|Giant Rat]]
+- [[Jackalwere|Jackalwere]]
 - 
 
 ## Loot Found
