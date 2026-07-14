@@ -1,1 +1,0 @@
-![[Mechanics/CLI/adventures/candlekeep-mysteries/03-the-joy-of-extradimensional-spaces|The Joy of Extradimensional Spaces]]
