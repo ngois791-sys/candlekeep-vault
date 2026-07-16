@@ -15,7 +15,7 @@ const { buildPage } = require('./template')
 
 // ── Paths ────────────────────────────────────────────────────
 const ROOT    = path.join(__dirname, '..')
-const CONTENT = path.join(ROOT, 'content')
+const CONTENT = path.join(ROOT, 'Candlekeep Campign Codex')
 const OUTPUT  = path.join(ROOT, 'public')
 const STYLES  = path.join(__dirname, 'styles', 'main.css')
 

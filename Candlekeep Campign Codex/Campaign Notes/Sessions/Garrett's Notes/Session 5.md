@@ -1,0 +1,121 @@
+*5/9/26*
+
+- Stranger on the path
+  - Armored, morning star
+  - Bald trifling
+  - Birhan character
+- Ravens watching everything were doing
+- Come upon the abandoned chateau
+  - Haunted house vibes
+- Lucy knocks and the door creepily opens all the way open
+- Homunculi do a lap around the house, nothing major to report
+- Cemetery in the back yard
+- Enter the house
+
+### Lucy & T-Money
+- Lucy Toothsome split off with Bro Alec and go left down some stairs to a basement
+  - Investigating well
+  - Found holy object that burned Lucy
+  - Find Servants Quarters
+- Go back upstairs to hunting den, go through hallway to circular tower in the middle of the property
+  - Find a dining room
+    - Dust on the table has been disturbed recently
+- Check the other room off hunting den
+  - Hellhound growling behind the door
+  - Kitchen behind the door
+- Find out there are Ravens mimicking other sounds throughout the house
+- Go upstairs to the second floor landing above the parlor/office
+- Lucy ran away after not being able to communicate with the raven
+- Goes downstairs to knock on the front door for seemingly no reason
+- Falls into trance and goes to cemetery
+  - Finds the graves of the previous Master of the House and family
+  - Nothing seems suspicious about the graves
+- Lucy decides to dig up the graves of the family
+  - Steals the ring of the Barron's finger
+  - Take his wooden cane
+  - Daughter's skeleton looks inhuman to the point where it is almost unrecognizable as human skeleton.
+  - Moving skeletons around in each of the graves
+- Started a fight with a scary scarecrow thing and some weird flashlight jerk off demons
+  - Defeated the scarecrow stuff
+- Find a hex bag
+
+### Morvax & Ash
+- Kade tried to kick open the door, failed, sprained his foot
+- Found key in the coat at entrance
+- Opens the door to hunting trophy room
+  - Staircase up to lofted office
+  - Another door
+  - Hallway
+- Go upstairs to the parlor/office
+- Go up one more level
+- Go right — two doors, spiral staircase
+  - Doors open to undisturbed bedrooms
+- Hear commotion up spiral staircase, go upstairs
+- Push open stuck door to attic
+  - Ceiling caved in, exposed to the elements
+  - Bunch of disused furniture
+  - Break open the lock on the chest
+    - Barrons hunting gear
+    - Leather armor
+    - Heavy crossbow
+    - Monogramed B.B. thing
+    - 15 crossbow bolts
+  - Open Wardrobes
+    - 5 black robes with crimson trim
+    - 5 pairs of leather sandals
+  - Another door to go through
+    - More storage for furniture
+    - Rectangular objects wrapped up
+    - Raven escapes when you go to unwrap the paintings
+      - Deer on a hill
+      - Dog with dead duck
+      - Man riding hippogriff
+      - Shield has symbol of Torn
+        - God of sacrifice and something
+      - Portrait of maybe master of the house
+        - Has the dog
+        - His wife is in the portrait
+          - One hand on his shoulder
+          - One holds bouquet of roses
+    - 2 gold framed mirrors
+      - 1 cracked
+      - Valuable but large
+- Go into the master bedroom on the second floor
+  - Writing desk is the only thing that isn't actively being used
+  - Bed bolted to the floor
+    - Bed is a secret door trigger
+    - Opens a hidden door
+  - Writing desk
+    - Old papers and writing instruments
+- Leave Curry and Cumin to watch the door and hallway to explore the extra stairs up again
+- Desk
+  - Map making supplies
+  - Leather journal
+    - Barron Brantifax's wife
+    - Describes hating visiting the Chalet
+    - Loves her daughter, but relationship strained
+    - Barron avid hunter
+    - Chalet is a hunting lodge
+    - Loved his dog as much as his children
+    - Felt isolated in the country
+    - First daughter bed ridden because of birth defects
+    - Barroness may have had some part of the daughters death at 6 yo
+    - Younger son was more like his father than mother
+    - Killed by wolf on 9th birthday while hunting with father
+    - Barron says there are evil whispers in the graveyard and plans to abandon the chalet
+
+- Join back up with everyone after Scarecrow battle
+  - Glows in the presence of someone full of passion
+  - Linked to the owner that's why it fused to the Barron
+- Go up the staircase to the attic
+  - Child sized bed
+  - Dolls
+  - Cradle
+  - Fish mobile
+  - Dust covers everything
+  - Likely the daughters room
+  - Battled a poltergeist and defeated it
+- Return to the secret room downstairs
+  - See a circle of humans in discussion
+  - Explosion has destroyed the upper levels of the tower
+  - They were expecting us

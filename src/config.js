@@ -96,7 +96,6 @@ module.exports = {
     { label: "Characters",  folder: "Campaign Notes/NPCs",      description: "The allies, rivals, and strange folk the party has met." },
     { label: "Locations",   folder: "Campaign Notes/Locations", description: "Places the company has traveled and the maps they've drawn." },
     { label: "Factions",    folder: "Campaign Notes/Factions",  description: "The orders and powers vying for influence across the realm." },
-    { label: "Lore",        folder: "Lore",                     description: "Histories, legends, and the deeper truths of the world." },
     { label: "Candlekeep",  folder: "CandleKeep",               description: "The great fortress-library and its many secret doors." },
   ],
 
